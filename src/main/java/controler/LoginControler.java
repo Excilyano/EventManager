@@ -15,6 +15,13 @@ public class LoginControler extends HttpServlet {
 	 * Auto-generated serial version uid
 	 */
 	private static final long serialVersionUID = 8380460707993002554L;
+	
+	private static final String msgErreur = "<div class=\"alert alert-danger\">"
+			+ "<b>Erreur d'authentification</b>"
+			+ "<ul>"
+			+ "%s"
+			+ "</ul>"
+			+ "</div>";
 	ServletConfig config;
 	List<String> langues;
 	
@@ -22,6 +29,20 @@ public class LoginControler extends HttpServlet {
 			HttpServletResponse response)
 			throws ServletException, IOException {
 		String langue = request.getParameter("lang");
+		Boolean wrongId = Boolean.valueOf(request.getParameter("wrongId"));
+		Boolean wrongMdp = Boolean.valueOf(request.getParameter("wrongMdp"));
+		String msgErreurFormat = null;
+		String erreur = "";
+		if (wrongId) {
+			erreur += "<li>L'adresse mail saisie est incorrecte</li>";
+		}
+		if (wrongMdp) {
+			erreur += "<li>Le mot de passe saisi est incorrect</li>";
+		}
+		if (!erreur.isEmpty()) {
+			msgErreurFormat = String.format(LoginControler.msgErreur, erreur);
+		}
+		request.setAttribute("msgErreur", msgErreurFormat);
 		if (langues.contains(langue)) {
 			// Si la langue est reconnue, on charge la page correspondante.
 			this.getServletContext().getRequestDispatcher( "/content/" + langue + "/login.jsp" ).forward( request, response );

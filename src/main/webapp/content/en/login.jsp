@@ -4,28 +4,79 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-<script src="bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/sideMenu.css">
+<script src="js/bootstrap.min.js"></script>
 <title>My Agenda</title>
 </head>
 <body>
-	<h1>My Agenda</h1>
-	<nav class="navbar navbar-default" role="navigation">
-	<div class="collapse navbar-collapse" id="oNavigation">
-		<ul class="nav navbar-nav">
-			<li><a href="#">Accueil</a></li>
-			<li class="dropdown"><a href="#">Section A</a></li>
-			<li class="dropdown"><a href="#">Section B</a></li>
-		</ul>
+<div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        My Agenda
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Événements à venir</a>
+                </li>
+                <li>
+                    <a href="#">Mes événements</a>
+                </li>
+                <li>
+                    <a href="#">Autre chose ?</a>
+                </li>
+            </ul>
+            <p class="logout"><a href="#" class="deconnexion"><span class="glyphicon glyphicon-off"></span> Déconnexion</a></p>
+            <p class="decouvrir"><a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-expand"></span> Découvrir My Agenda</a></p>
+        </div>
+        <!-- /#sidebar-wrapper -->
+       
+    <div id="page-content-wrapper">
+	<div>
+	<form class="col-lg-6 formulaire">
+		<legend>Connexion</legend>
+<!-- 		<div class="alert alert-danger"> -->
+<!-- 			<b>Erreur d'authentification</b> -->
+<!-- 			<ul> -->
+<!-- 				<li>L'adresse mail saisie est incorrecte</li> -->
+<!-- 				<li>Le mot de passe saisi est incorrect</li> -->
+<!-- 			</ul> -->
+<!-- 		</div> -->
+		${msgErreur}
+<%-- 		${pageContext.request.contextPath} --%>
+		<label for="mail">Adresse mail : </label>
+		<input id="mail" type="text" class="form-control"><br/>
+		<label for="mdp">Mot de passe : </label>
+		<input id="mdp" type="password" class="form-control">
+		<br/>
+		<a>Mot de passe oublié ?</a><br/>
+		<a>Créer mon compte</a>
+		<span class="right-aligned-button">
+			<button class="btn btn-primary">Se connecter</button>
+		</span>
+	</form>
+<!-- 	<a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><<</a> -->
+	
+		</div>
 	</div>
-	</nav>
-	<p>It looks like you are able to hold a conversation in English.
-		I'm glad you came here. Mind talking a bit ?</p>
-	<button class="btn btn-default">Défaut</button>
-	<button class="btn btn-primary">Primary</button>
-	<button class="btn btn-success">Success</button>
-	<button class="btn btn-info">Info</button>
-	<button class="btn btn-warning">Warning</button>
-	<button class="btn btn-danger">Danger</button>
+</div>
+<!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
 </body>
 </html>

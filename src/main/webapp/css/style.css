@@ -1,0 +1,30 @@
+body {
+	background: url(../img/agenda.png);
+}
+
+.decouverte {
+	position : absolute;
+	bottom : 10px;
+	left : 10px;
+}
+
+.right-aligned-button {
+	position : absolute;
+	right : 15px;
+	bottom : 15px;
+}
+
+.formulaire {
+	border : solid;
+	border-width : 1px;
+	border-radius : 10px;
+	padding-top : 10px;
+	padding-bottom : 10px;
+	width : 50%;
+	background-color : #fafafa;
+	margin : auto;
+	position : absolute;
+	right : 0;
+	left : 0;
+	top : 100px;
+}
