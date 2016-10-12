@@ -13,6 +13,11 @@
       <artifactId>servlet-api</artifactId>
       <version>2.5</version>
     </dependency>
+    <dependency>
+      <groupId>com.efsavage.jquery</groupId>
+      <artifactId>jquery-maven</artifactId>
+      <version>1.7.2</version>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
