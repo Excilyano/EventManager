@@ -21,6 +21,7 @@
           <element id="library" level="project" name="Maven: org.javassist:javassist:3.18.1-GA" />
           <element id="library" level="project" name="Maven: org.apache.geronimo.specs:geronimo-jta_1.1_spec:1.1.1" />
           <element id="library" level="project" name="Maven: org.apache.derby:derbyclient:10.11.1.1" />
+          <element id="library" level="project" name="Maven: com.h2database:h2:1.4.192" />
         </element>
       </element>
       <element id="directory" name="META-INF">
