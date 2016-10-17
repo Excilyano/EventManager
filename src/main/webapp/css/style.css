@@ -1,5 +1,7 @@
 body {
-	background: url(../img/agenda.png);
+	background: url(../img/agenda.png) no-repeat;
+	background-size: cover;
+
 }
 
 .decouverte {
