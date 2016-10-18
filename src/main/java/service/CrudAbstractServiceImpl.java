@@ -3,17 +3,21 @@ package service;
 import util.EntityManagerUtil;
 
 import javax.persistence.EntityManager;
+import java.lang.reflect.ParameterizedType;
 
 /**
  * Created by Steeve Sinigaglia on 17/10/2016.
  */
-public class CrudAbstractServiceImpl<T> implements CrudService<T> {
+public abstract class CrudAbstractServiceImpl<T> implements CrudService<T> {
     protected EntityManager em;
     protected Class<T> entityClass;
 
-    protected CrudAbstractServiceImpl(Class<T> entityClass) {
-        this.entityClass = entityClass;
-        em = EntityManagerUtil.getEntityManager("td");
+    public CrudAbstractServiceImpl() {
+        System.out.println(getClass());
+        entityClass = (Class<T>)
+                ((ParameterizedType)getClass().getGenericSuperclass())
+                        .getActualTypeArguments()[0];
+        em = EntityManagerUtil.getEntityManager("h2-event");
     }
 
     @Override

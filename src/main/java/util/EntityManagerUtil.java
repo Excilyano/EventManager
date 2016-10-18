@@ -9,6 +9,7 @@ import javax.persistence.Persistence;
  */
 public class EntityManagerUtil {
 
+    private static EntityManagerFactory emf;
     private static EntityManager em;
 
     public static EntityManager getEntityManager(String persistenceUnit){
@@ -19,7 +20,12 @@ public class EntityManagerUtil {
     }
 
     private static void buildEntityManager(String persistenceUnit) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory(persistenceUnit);
+        emf = Persistence.createEntityManagerFactory(persistenceUnit);
         em = emf.createEntityManager();
+    }
+
+    public static void close(){
+        em.close();
+        emf.close();
     }
 }

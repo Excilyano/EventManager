@@ -19,7 +19,7 @@
      For a MAVEN project put this file in "src/main/resources/META-INF"
      -->
 
-    <persistence-unit name="h2" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="h2-event" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <properties>
             <property name="hibernate.archive.autodetection" value="class" />
@@ -28,7 +28,6 @@
             <property name="hibernate.connection.url" value="jdbc:h2:~/db/eventmanager" />
             <property name="hibernate.connection.user" value="sa" />
              <property name="hibernate.show_sql" value="true"/>
-            <property name="hibernate.flushMode" value="FLUSH_AUTO" />
             <!--Ici on choisira "create-drop" si on veut réinitialiser toutes les datas, sinon "update" -->
             <property name="hibernate.hbm2ddl.auto" value="create-drop" />
         </properties>

@@ -20,6 +20,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
+          <factory-entry name="h2-event" />
           <factory-entry name="td" value="1ad06dfd-6a79-471f-ace3-3904c036414a" />
           <factory-entry name="test" value="3222e45b-64e9-43c8-a04c-fb7aa1bca404" />
         </datasource-mapping>
