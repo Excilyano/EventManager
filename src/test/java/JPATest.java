@@ -42,11 +42,9 @@ public class JPATest {
         }
 
 
-        em.getTransaction().begin();
-        List<User> users = em.createQuery("from User").getResultList();
-        em.getTransaction().commit();
-        for (User u : users) {
-            System.out.println(u);
+        System.out.println("liste des utilisateurs");
+        for (User user : userService.findAll()) {
+            System.out.println(user);
         }
 
         System.out.println("blabla");
