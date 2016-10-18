@@ -1,5 +1,6 @@
 import entities.Event;
 import entities.User;
+import service.EventService;
 import service.UserService;
 import util.EntityManagerUtil;
 
@@ -18,38 +19,21 @@ public class JPATest {
         EntityManager em = EntityManagerUtil.getEntityManager("h2-event");
 
         UserService userService = new UserService();
+        EventService eventService = new EventService();
 
         User john = new User("Jonh","Do","john.do@gmail.com","azerty");
-
-        System.out.println("Entity manager open ? " + em.isOpen());
-
-//        em.getTransaction().begin();
-//        em.persist(john);
-//        em.getTransaction().commit();
-        // REPLACE BY
         userService.create(john);
-
         Event event = new Event("Training JEE",new Date(), new Date(), john);
-        em.getTransaction().begin();
-        em.persist(event);
-        em.getTransaction().commit();
+        eventService.create(event);
 
-        em.getTransaction().begin();
-        List<Event> events = em.createQuery("from Event").getResultList();
-        em.getTransaction().commit();
-        for (Event e : events) {
+        for (Event e : eventService.findAll()) {
             System.out.println(e);
         }
-
-
-        System.out.println("liste des utilisateurs");
         for (User user : userService.findAll()) {
             System.out.println(user);
         }
 
-        System.out.println("blabla");
         EntityManagerUtil.close();
-        System.out.println("close");
 
     }
 

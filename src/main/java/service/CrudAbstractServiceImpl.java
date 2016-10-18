@@ -19,7 +19,7 @@ public abstract class CrudAbstractServiceImpl<T> implements CrudService<T> {
     private Class<T> entityClass;
     private CriteriaBuilder criteriaBuilder;
 
-    public CrudAbstractServiceImpl() {
+    protected CrudAbstractServiceImpl() {
         entityClass = (Class<T>)
                 ((ParameterizedType)getClass().getGenericSuperclass())
                         .getActualTypeArguments()[0];

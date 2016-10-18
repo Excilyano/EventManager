@@ -7,4 +7,5 @@ import entities.User;
  */
 public class UserService extends CrudAbstractServiceImpl<User> {
 
+    //implements all custom request for this entity here
 }
