@@ -45,10 +45,10 @@ public class LoginControler extends HttpServlet {
 		request.setAttribute("msgErreur", msgErreurFormat);
 		if (langues.contains(langue)) {
 			// Si la langue est reconnue, on charge la page correspondante.
-			this.getServletContext().getRequestDispatcher( "/content/" + langue + "/login.jsp" ).forward( request, response );
+			this.getServletContext().getRequestDispatcher( "/WEB-INF/" + langue + "/login.jsp" ).forward( request, response );
 		} else {
 			// Sinon, on charge la page en anglais par defaut
-			this.getServletContext().getRequestDispatcher( "/content/en/login.jsp" ).forward( request, response );
+			this.getServletContext().getRequestDispatcher( "/WEB-INF/en/login.jsp" ).forward( request, response );
 		}
 	}
 	
