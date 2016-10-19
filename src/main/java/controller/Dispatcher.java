@@ -22,7 +22,15 @@ public class Dispatcher extends HttpServlet {
 		case "connexion" :
 			this.getServletContext().getNamedDispatcher("logger").forward( request, response );
 			break;
-			
+		case "inscription" :
+			this.getServletContext().getNamedDispatcher("register").forward( request, response );
+			break;
+		case "consultation" :
+			this.getServletContext().getNamedDispatcher("displayer").forward( request, response );
+			break;
+		case "ajout" :
+			this.getServletContext().getNamedDispatcher("manager").forward( request, response );
+			break;
 			
 		default :
 			this.getServletContext().getNamedDispatcher("logger").forward( request, response );
@@ -44,8 +52,15 @@ public class Dispatcher extends HttpServlet {
 			request.setAttribute("mdpError", "<li>Le mot de passe saisi est incorrect</li>");
 			this.getServletContext().getNamedDispatcher("logger").forward( request, response );
 			break;
-			
-			
+		case "inscription" :
+			this.getServletContext().getNamedDispatcher("register").forward( request, response );
+			break;
+		case "consultation" :
+			this.getServletContext().getNamedDispatcher("displayer").forward( request, response );
+			break;
+		case "ajout" :
+			this.getServletContext().getNamedDispatcher("manager").forward( request, response );
+			break;
 		default :
 			this.getServletContext().getNamedDispatcher("logger").forward( request, response );
 			break;

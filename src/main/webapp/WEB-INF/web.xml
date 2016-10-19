@@ -27,6 +27,24 @@
 		<servlet-class>controller.LoginController</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+	
+	<servlet>
+		<servlet-name>register</servlet-name>
+		<servlet-class>controller.InscriptionController</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>displayer</servlet-name>
+		<servlet-class>controller.ListeEvenementController</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>manager</servlet-name>
+		<servlet-class>controller.AjoutEvenementController</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
 
 	<!-- filter -->
 	<filter>
