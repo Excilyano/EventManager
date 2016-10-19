@@ -25,7 +25,6 @@ public class LoginController extends HttpServlet {
 	protected void doGet (HttpServletRequest request,
 			HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("!");
 		String msgIdError = (String) request.getAttribute("idError");
 		String msgMdpError = (String) request.getAttribute("mdpError");
 		String msgErreurFormat = null;
@@ -43,7 +42,6 @@ public class LoginController extends HttpServlet {
 	protected void doPost (HttpServletRequest request,
 			HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("?");
 		String msgIdError = (String) request.getAttribute("idError");
 		String msgMdpError = (String) request.getAttribute("mdpError");
 		String msgErreurFormat = null;

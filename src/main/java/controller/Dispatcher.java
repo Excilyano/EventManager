@@ -16,16 +16,15 @@ public class Dispatcher extends HttpServlet {
 	protected void doGet (HttpServletRequest request,
 			HttpServletResponse response)
 			throws ServletException, IOException {
-		String page = request.getRequestURI().split("/")[0];
+		String[] uriSplitted = request.getRequestURI().split("/");
+		String page = uriSplitted[uriSplitted.length -1];
 		switch (page) {
 		case "connexion" :
-			System.out.println(1);
 			this.getServletContext().getNamedDispatcher("logger").forward( request, response );
 			break;
 			
 			
 		default :
-			System.out.println(2);
 			this.getServletContext().getNamedDispatcher("logger").forward( request, response );
 			break;
 		}
@@ -35,10 +34,10 @@ public class Dispatcher extends HttpServlet {
 	protected void doPost (HttpServletRequest request,
 			HttpServletResponse response)
 			throws ServletException, IOException {
-		String page = request.getRequestURI().split("/")[0];
+		String[] uriSplitted = request.getRequestURI().split("/");
+		String page = uriSplitted[uriSplitted.length -1];
 		switch (page) {
 		case "connexion" :
-			System.out.println(3);
 			// On verifie les identifiants ici
 			// On initialise la session, et on redirige en fonction du succès ou de l'échec de l'authentification
 			request.setAttribute("idError", "<li>L'adresse mail saisie est incorrecte</li>");
@@ -48,7 +47,6 @@ public class Dispatcher extends HttpServlet {
 			
 			
 		default :
-			System.out.println(4);
 			this.getServletContext().getNamedDispatcher("logger").forward( request, response );
 			break;
 		}

@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-<link rel="stylesheet" href="css/style.css" type="text/css">
-<link rel="stylesheet" href="css/sideMenu.css" type="text/css">
-<script src="js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/sideMenu.css" type="text/css">
+<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 <title>My Agenda</title>
 </head>
 <body>
@@ -37,7 +37,6 @@
 				<form class="col-lg-6 formulaire" action="MyAgenda/connexion" method="post">
 					<legend>Connexion</legend>
 					${msgErreur}
-					<%-- 		${pageContext.request.contextPath} --%>
 					<label for="mail">Adresse mail : </label> <input id="mail"
 						type="text" class="form-control"><br /> <label for="mdp">Mot
 						de passe : </label> <input id="mdp" type="password" class="form-control">
