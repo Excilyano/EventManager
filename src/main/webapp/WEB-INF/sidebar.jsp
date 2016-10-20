@@ -1,3 +1,4 @@
+<!-- Sidebar -->
 <div id="sidebar-wrapper">
 	<ul class="sidebar-nav">
 		<li class="sidebar-brand"><a href="#"> My Agenda </a></li>
@@ -14,3 +15,4 @@
 			class="glyphicon glyphicon-expand"></span> Découvrir My Agenda</a>
 	</p>
 </div>
+<!-- /#sidebar-wrapper -->
