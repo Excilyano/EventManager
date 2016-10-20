@@ -38,12 +38,14 @@ a {
 #mail {
 	padding-right : 40px;
 	background : url(../img/arobase.png) no-repeat 98% 7px;
+	background-color : #fff;
 	background-size : 20px 20px;
 }
 
 #mdp {
 	padding-right : 40px;
 	background : url(../img/cadenas.png) no-repeat 98% 7px;
+	background-color : #fff;
 	background-size : 20px 20px;
 }
 
