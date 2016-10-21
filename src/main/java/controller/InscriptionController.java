@@ -17,6 +17,7 @@ public class InscriptionController extends HttpServlet {
 			HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO
+		this.getServletContext().getRequestDispatcher( "/WEB-INF/views/inscription.jsp" ).forward( request, response );
 	}
 	
 	protected void doPost (HttpServletRequest request,

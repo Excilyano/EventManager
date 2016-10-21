@@ -17,12 +17,14 @@ public class AjoutEvenementController extends HttpServlet {
 			HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO
+		this.getServletContext().getRequestDispatcher( "/WEB-INF/views/createEvent.jsp" ).forward( request, response );
 	}
 	
 	protected void doPost (HttpServletRequest request,
 			HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO
+		this.getServletContext().getRequestDispatcher( "/WEB-INF/views/createEvent.jsp" ).forward( request, response );
 	}
 	
 	public void init() throws ServletException {

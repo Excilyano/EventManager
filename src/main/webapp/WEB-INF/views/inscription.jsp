@@ -4,17 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/sideMenu.css">
-<script src="js/bootstrap.min.js"></script>
+<jsp:directive.include file="/WEB-INF/imports.jsp" />
 <title>My Agenda</title>
 </head>
 <body>
 	<div id="wrapper">
-		<!-- Sidebar -->
 		<jsp:directive.include file="/WEB-INF/sidebar.jsp" />
-		<!-- /#sidebar-wrapper -->
 
 		<div id="page-content-wrapper">
 			<div>

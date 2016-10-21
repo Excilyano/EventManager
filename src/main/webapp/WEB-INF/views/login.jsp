@@ -4,10 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/sideMenu.css" type="text/css">
-<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<jsp:directive.include file="/WEB-INF/imports.jsp" />
 <title>My Agenda</title>
 </head>
 <body>
@@ -16,13 +13,14 @@
 
 		<div id="page-content-wrapper">
 			<div>
-				<form class="col-lg-6 formulaire" action="MyAgenda/connexion" method="post">
+<!-- 				<form class="col-lg-6 formulaire" action="connexion.action" method="post"> -->
+				<form class="col-lg-6 formulaire" action="ajout.action" method="post">
 					<legend>Connexion</legend>
 					${msgErreur}
 					<label for="mail">Adresse mail : </label> <input id="mail"
 						type="text" class="form-control"><br /> <label for="mdp">Mot
 						de passe : </label> <input id="mdp" type="password" class="form-control">
-					<br /> <a>Mot de passe oublié ?</a><br /> <a>Créer mon compte</a> <span
+					<br /> <a>Mot de passe oublié ?</a><br /> <a href="inscription.action">Créer mon compte</a> <span
 						class="right-aligned-button">
 						<button class="btn btn-primary">Se connecter</button>
 					</span>

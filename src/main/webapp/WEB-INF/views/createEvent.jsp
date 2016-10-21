@@ -4,10 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/sideMenu.css">
-<link rel="stylesheet" href="/path/to/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+<jsp:directive.include file="/WEB-INF/imports.jsp" />
 
 <title>My Agenda</title>
 </head>
@@ -46,7 +43,14 @@
 						</div>
 					</div>
 
-
+					<div class="well">
+  <div id="datetimepicker1" class="input-append date">
+    <input data-format="dd/MM/yyyy hh:mm:ss" type="text"></input>
+    <span class="add-on">
+      <span class="glyphicon glyphicon-calendar"></span>
+    </span>
+  </div>
+</div>
 
 
 					<div class="col-xs-9 col-xs-offset-3">
