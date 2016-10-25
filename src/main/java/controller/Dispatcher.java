@@ -17,7 +17,6 @@ public class Dispatcher extends HttpServlet {
 			HttpServletResponse response)
 			throws ServletException, IOException {
 
-		dispatch(request,response);
 		String[] uriSplitted = request.getRequestURI().split("/");
 
 		String page = uriSplitted[uriSplitted.length -1];
@@ -27,7 +26,6 @@ public class Dispatcher extends HttpServlet {
 			this.getServletContext().getNamedDispatcher("logger").forward( request, response );
 			break;
 		case "inscription.jspa" :
-			System.out.println("inscription");
 			this.getServletContext().getNamedDispatcher("register").forward( request, response );
 			break;
 		case "consultation.jspa" :
@@ -72,12 +70,12 @@ public class Dispatcher extends HttpServlet {
 		}
 	}
 
-	public void dispatch(HttpServletRequest request, HttpServletResponse response){
-		String[] uriSplit = request.getRequestURI().split("/");
-		for (String s : uriSplit) {
-			System.out.println(s);
-		}
-	}
+//	public void dispatch(HttpServletRequest request, HttpServletResponse response){
+//		String[] uriSplit = request.getRequestURI().split("/");
+//		for (String s : uriSplit) {
+//			System.out.println(s);
+//		}
+//	}
 	
 	public void init() throws ServletException {
 		super.init();
