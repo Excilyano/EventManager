@@ -28,6 +28,9 @@ public class Dispatcher extends HttpServlet {
 		case "consultation.action" :
 			this.getServletContext().getNamedDispatcher("displayer").forward( request, response );
 			break;
+		case "creationEvenement.action":
+			this.getServletContext().getNamedDispatcher("createEvent").forward( request, response );
+			break;
 		case "ajout.action" :
 			this.getServletContext().getNamedDispatcher("manager").forward( request, response );
 			break;
