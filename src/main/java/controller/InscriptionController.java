@@ -16,7 +16,7 @@ public class InscriptionController extends HttpServlet {
 	protected void doGet (HttpServletRequest request,
 			HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO
+		System.out.println("heeere");
 	}
 	
 	protected void doPost (HttpServletRequest request,
