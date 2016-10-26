@@ -19,16 +19,16 @@ public class Dispatcher extends HttpServlet {
 		String[] uriSplitted = request.getRequestURI().split("/");
 		String page = uriSplitted[uriSplitted.length -1];
 		switch (page) {
-		case "connexion" :
+		case "connexion.action" :
 			this.getServletContext().getNamedDispatcher("logger").forward( request, response );
 			break;
-		case "inscription" :
+		case "inscription.action" :
 			this.getServletContext().getNamedDispatcher("register").forward( request, response );
 			break;
-		case "consultation" :
+		case "consultation.action" :
 			this.getServletContext().getNamedDispatcher("displayer").forward( request, response );
 			break;
-		case "ajout" :
+		case "ajout.action" :
 			this.getServletContext().getNamedDispatcher("manager").forward( request, response );
 			break;
 			
@@ -45,20 +45,20 @@ public class Dispatcher extends HttpServlet {
 		String[] uriSplitted = request.getRequestURI().split("/");
 		String page = uriSplitted[uriSplitted.length -1];
 		switch (page) {
-		case "connexion" :
+		case "connexion.action" :
 			// On verifie les identifiants ici
 			// On initialise la session, et on redirige en fonction du succès ou de l'échec de l'authentification
 			request.setAttribute("idError", "<li>L'adresse mail saisie est incorrecte</li>");
 			request.setAttribute("mdpError", "<li>Le mot de passe saisi est incorrect</li>");
 			this.getServletContext().getNamedDispatcher("logger").forward( request, response );
 			break;
-		case "inscription" :
+		case "inscription.action" :
 			this.getServletContext().getNamedDispatcher("register").forward( request, response );
 			break;
-		case "consultation" :
+		case "consultation.action" :
 			this.getServletContext().getNamedDispatcher("displayer").forward( request, response );
 			break;
-		case "ajout" :
+		case "ajout.action" :
 			this.getServletContext().getNamedDispatcher("manager").forward( request, response );
 			break;
 		default :

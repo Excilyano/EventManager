@@ -1,11 +1,43 @@
-body {
+#background-login {
 	background: url(../img/agenda.png) no-repeat;
 	background-size: cover;
+}
 
+#background {
+	background-color : #bbf;
 }
 
 a {
 	cursor : pointer;
+}
+
+.evenement {
+	display : inline-block;
+	border : solid;
+	border-width : 1px;
+	width : 200px;
+	height : 210px;
+	background-color : #aaf;
+	margin : 15px 5px 0px 0px;
+	vertical-align : top;
+}
+
+.creerEvenement:hover {
+	background-color : #ccf;
+}
+
+.evenement h4 {
+	width : 10em;
+	border : solid;
+	border-width : 1px;
+	margin-top : -10px;
+	margin-left : -1px;
+	padding-left : 6px;
+	background-color : #aaf;
+}
+
+.evenement p {
+	margin-left : 10px;
 }
 
 .decouverte {
