@@ -23,7 +23,7 @@ public class JPATest {
 
         User john = new User("Jonh","Do","john.do@gmail.com","azerty");
         userService.create(john);
-        Event event = new Event("Training JEE",new Date(), new Date(), john);
+        Event event = new Event("Training JEE","4 rue de nantes",new Date(), new Date(), john);
         eventService.create(event);
 
         for (Event e : eventService.findAll()) {

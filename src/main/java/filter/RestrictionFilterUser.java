@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class RestrictionFilterUser implements Filter{
-	private static final String PAGE_CONNEXION = "/connexion";
+	private static final String PAGE_CONNEXION = "/connexion.action";
 	private static final String ATT_SESSION_USER = "sessionUser";
 	
 	@Override

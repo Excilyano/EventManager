@@ -16,13 +16,15 @@ public class InscriptionController extends HttpServlet {
 	protected void doGet (HttpServletRequest request,
 			HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("heeere");
+		this.getServletContext().getRequestDispatcher( "/WEB-INF/views/inscription.jsp" ).forward( request, response );
 	}
 	
 	protected void doPost (HttpServletRequest request,
 			HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO
+		
+		
 	}
 	
 	public void init() throws ServletException {

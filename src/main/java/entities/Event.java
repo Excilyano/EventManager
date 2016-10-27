@@ -23,8 +23,8 @@ public class Event {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "adresse")
-    private String adresse;
+    @Column(name = "location", nullable = false)
+    private String location;
 
     @Column(name = "starting_date", nullable = false)
     private Date startingDate;
@@ -53,12 +53,14 @@ public class Event {
      * Minimal Constructor
      *
      * @param title        title of the event
+     * @param location	   the location of the event
      * @param startingDate the starting date of the event
      * @param endDate      the end date of the event
      * @param creator      the creator (User) of the event
      */
-    public Event(String title, Date startingDate, Date endDate, User creator) {
+    public Event(String title, String location, Date startingDate, Date endDate, User creator) {
         this.title = title;
+        this.location = location;
         this.startingDate = startingDate;
         this.endDate = endDate;
         this.creator = creator;
@@ -88,12 +90,12 @@ public class Event {
         this.description = description;
     }
 
-    public String getAdresse() {
-        return adresse;
+    public String getLocation() {
+        return location;
     }
 
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public Date getStartingDate() {
@@ -149,7 +151,7 @@ public class Event {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
-                ", adresse='" + adresse + '\'' +
+                ", location='" + location + '\'' +
                 ", startingDate=" + startingDate +
                 ", endDate=" + endDate +
                 ", hidden=" + hidden +
