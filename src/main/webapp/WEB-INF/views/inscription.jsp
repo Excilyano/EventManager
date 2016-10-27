@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="ISO-8859-1" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -17,11 +17,11 @@
                 <legend>Inscription</legend>
                 ${msgErreur}
                 <%-- 		${pageContext.request.contextPath} --%>
-                <div class="form-group has-error">
+                <div class="form-group row">
                     <label for="name" class="col-xs-3 col-form-label">Nom* </label>
                     <div class="col-xs-9">
                         <input class="form-control" type="text" name="lastname"
-                               placeholder="Votre nom..." id="name">
+                               placeholder="Votre nom..." id="name" value="${param.get("lastname")}">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -29,7 +29,7 @@
                     </label>
                     <div class="col-xs-9">
                         <input class="form-control" type="text" id="firstname" name="firstname"
-                               placeholder="Votre prénom...">
+                               placeholder="Votre prénom..." value="${param.get("firstname")}">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -37,7 +37,7 @@
                     </label>
                     <div class="col-xs-9">
                         <input class="form-control" type="text" id="company" name="company"
-                               placeholder="Nom de société...">
+                               placeholder="Nom de société..." value="${param.get("company")}">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -45,7 +45,7 @@
                         mail* </label>
                     <div class="col-xs-9">
                         <input class="form-control" type="email" id="mail" name="mail"
-                               placeholder="Votre adresse mail...">
+                               placeholder="Votre adresse mail..." value="${param.get("mail")}">
                     </div>
                 </div>
                 <div class="form-group row">
