@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,38 +16,48 @@
 		<!-- /#sidebar-wrapper -->
 		<div id="page-content-wrapper">
 			<div>
-				<form class="col-lg-10 formulaire">
-					<legend>Création d'un événement</legend>
-					${msgErreur}
+				<form class="col-lg-10 formulaire" action="creationEvenement.action"
+					method="POST">
+					<legend>CrÃ©ation d'un Ã©vÃ©nement</legend>
+					<c:if test="${not empty msgError}">
+						<div class="alert alert-danger">${msgError}</div>
+					</c:if>
 					<%-- 		${pageContext.request.contextPath} --%>
+
+					<div class="form-group row"></div>
 					<div class="form-group row">
-						<label for="titre" class="col-xs-3 col-form-label">Titre*
+						<label for="title" class="col-xs-3 col-form-label">Titre*
 						</label>
 						<div class="col-xs-9">
-							<input class="form-control" type="text"
-								placeholder="Titre de l'événement..." id="titre">
+							<input class="form-control" required type="text"
+								placeholder="Titre de l'Ã©vÃ©nement..." id="title" name="title"
+								value="${title }">
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="description" class="col-xs-3 col-form-label">Description*
 						</label>
 						<div class="col-xs-9">
-							<textarea class="form-control" rows="4" type="text" id="description"
-								placeholder="Description de l'événement"></textarea>
+							<textarea required class="form-control" rows="4" type="text"
+								id="description" name="description"
+								placeholder="Description de l'Ã©vÃ©nement">${description }</textarea>
 						</div>
 					</div>
 					<div class="form-group row">
-						<label for="lieu" class="col-xs-3 col-form-label">Lieu </label>
+						<label for="location" class="col-xs-3 col-form-label">Lieu
+						</label>
 						<div class="col-xs-9">
-							<input class="form-control" type="text" id="lieu"
-								placeholder="5 rue de la loire..">
+							<input required class="form-control" type="text" id="location"
+								name="location" placeholder="5 rue de la loire.."
+								value="${location }">
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="datetimepickerfirst" class="col-xs-3 col-form-label">Date
-							et heure début </label>
+							et heure dÃ©but </label>
 						<div class="col-xs-4">
-							<input type='text' class="form-control" id='datetimepickerfirst' />
+							<input required type='text' class="form-control"
+								id='datetimepickerfirst' name="datetimepickerfirst" />
 						</div>
 					</div>
 
@@ -53,23 +65,23 @@
 						<label for="datetimepickerend" class="col-xs-3 col-form-label">Date
 							et heure fin </label>
 						<div class="col-xs-4">
-							<input type='text' class="form-control"
-								id='datetimepickerend' />
+							<input required type='text' class="form-control"
+								id='datetimepickerend' name="datetimepickerend" />
 						</div>
 					</div>
 					<div class="form-group row">
-						<label for="publication" class="col-xs-3 col-form-label">Rendre visible l'événement
-						</label>
+						<label for="visibility" class="col-xs-3 col-form-label">Rendre
+							visible l'Ã©vÃ©nement </label>
 						<div class="col-xs-5">
-							<input id="publication" type="checkbox"
+							<input id="visibility" name="visibility" type="checkbox"
 								data-toggle="toggle" data-on="Visible" data-off="Invisible"
 								data-onstyle="success" data-offstyle="danger">
 						</div>
 					</div>
 					<div class="col-xs-9 col-xs-offset-3">
-						<button type="button" class="btn btn-primary btn-lg">Créer
-							l'événement</button>
-					</div>	
+						<button type="submit" class="btn btn-primary btn-lg">CrÃ©er
+							l'Ã©vÃ©nement</button>
+					</div>
 				</form>
 			</div>
 		</div>
@@ -100,6 +112,28 @@
 						$('#datetimepickerfirst').data("DateTimePicker")
 								.maxDate(e.date);
 					});
+			$("#datetimepickerfirst").on('dp.show', function() {
+				if ($(this).val()) {
+					$('td.hour.disabled').removeClass('disabled');
+					$('td.minute.disabled').removeClass('disabled');
+				}
+			});
+
+			$("#datetimepickerfirst").on('dp.change', function() {
+				$('td.hour.disabled').removeClass('disabled');
+				$('td.minute.disabled').removeClass('disabled');
+			});
+			$("#datetimepickerend").on('dp.show', function() {
+				if ($(this).val()) {
+					$('td.hour.disabled').removeClass('disabled');
+					$('td.minute.disabled').removeClass('disabled');
+				}
+			});
+
+			$("#datetimepickerend").on('dp.change', function() {
+				$('td.hour.disabled').removeClass('disabled');
+				$('td.minute.disabled').removeClass('disabled');
+			});
 		});
 	</script>
 </body>

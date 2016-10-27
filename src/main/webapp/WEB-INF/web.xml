@@ -40,13 +40,13 @@
 
 	<servlet>
 		<servlet-name>createEvent</servlet-name>
-		<servlet-class>controller.AjoutEvenementController</servlet-class>
+		<servlet-class>controller.CreateEventController</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
 	<servlet>
 		<servlet-name>manager</servlet-name>
-		<servlet-class>controller.AjoutEvenementController</servlet-class>
+		<servlet-class>controller.CreateEventController</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 

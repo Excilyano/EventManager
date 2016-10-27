@@ -29,7 +29,12 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>5.0.7.Final</version>
 		</dependency>
-
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		
 		<!-- DERBY Database -->
 		<dependency>
 			<groupId>org.apache.derby</groupId>

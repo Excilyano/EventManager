@@ -24,6 +24,8 @@ public class InscriptionController extends HttpServlet {
 			HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO
+		
+		
 	}
 	
 	public void init() throws ServletException {
