@@ -16,7 +16,7 @@ import java.util.List;
  */
 public abstract class CrudAbstractServiceImpl<T> implements CrudService<T> {
     protected EntityManager em;
-    private Class<T> entityClass;
+    protected Class<T> entityClass;
     protected CriteriaBuilder criteriaBuilder;
 
     protected CrudAbstractServiceImpl() {

@@ -20,7 +20,7 @@
 					<label for="mail">Adresse mail : </label> <input id="mail"
 						type="text" class="form-control"><br /> <label for="mdp">Mot
 						de passe : </label> <input id="mdp" type="password" class="form-control">
-					<br /> <a>Mot de passe oublié ?</a><br /> <a href="inscription.action">Créer mon compte</a> <span
+					<br /> <a>Mot de passe oublié ?</a><br /> <a href="inscription.jspa">Créer mon compte</a> <span
 						class="right-aligned-button">
 						<button class="btn btn-primary">Se connecter</button>
 					</span>
