@@ -7,7 +7,7 @@
 <jsp:directive.include file="/WEB-INF/imports.jsp" />
 <title>My Agenda</title>
 </head>
-<body>
+<body id="background-login">
 	<div id="wrapper">
 		<jsp:directive.include file="/WEB-INF/sidebar.jsp" />
 

@@ -1,11 +1,96 @@
-body {
+#background-login {
 	background: url(../img/agenda.png) no-repeat;
 	background-size: cover;
+}
 
+#background {
+	background-color : #bbf;
+}
+
+#calque {
+	display: none;
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: #fff;
+	z-index:1;
+	opacity:0.5;
+	filter: alpha(opacity=50);
 }
 
 a {
 	cursor : pointer;
+}
+
+.evenement {
+	display : inline-block;
+	border : solid;
+	border-width : 1px;
+	width : 200px;
+	height : 160px;
+	background-color : #aaf;
+	margin : 15px 5px 0px 0px;
+	vertical-align : top;
+	cursor : pointer;
+}
+
+.creerEvenement:hover {
+	background-color : #ccf;
+}
+
+.creerEvenement .perso-glyphicon {
+	margin :45px 85px;
+	font-size : 2em;
+	color : #22a;
+}
+
+.creerEvenement:hover .perso-glyphicon {
+	color : #55d;
+}
+
+.evenement h4 {
+	width : 10em;
+	border : solid;
+	border-width : 1px;
+	margin-top : -10px;
+	margin-left : -1px;
+	padding-left : 6px;
+	background-color : #aaf;
+}
+
+.evenement p {
+	margin-left : 10px;
+}
+
+.modale {
+	display : none;
+	position : fixed;
+	left : 40%;
+	top : 25%;
+	border : solid;
+	border-width : 1px;
+	width : 300px;
+	height : 320px;
+	background-color : #eef;
+	z-index : 2;
+	padding-left : 10px;
+}
+
+.scrollable {
+	margin : auto;
+	border : solid #aaf;
+	border-width : 1px;
+	height : 75px;
+	width : 270px;
+	background-color : #fafaff;
+	overflow-y : auto;
+}
+
+.scrollable p {
+	display : inline-block;
+	margin : 0px;
 }
 
 .decouverte {

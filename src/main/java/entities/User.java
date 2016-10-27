@@ -38,7 +38,7 @@ public class User {
     )
     private Set<Event> events;
 
-    /**
+	/**
      * Default constructor
      */
     public User() {
@@ -110,16 +110,12 @@ public class User {
         this.events.add(event);
     }
 
+    public Set<Event> getEvents() {
+		return events;
+	}
+
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", company='" + company + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", events=" + events +
-                '}';
+        return firstName + " " + lastName;
     }
 }

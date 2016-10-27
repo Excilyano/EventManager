@@ -30,10 +30,6 @@ public class Dispatcher extends HttpServlet {
 			break;
 		case "consultation.jspa" :
 			this.getServletContext().getNamedDispatcher("displayer").forward( request, response );
-
-			break;
-		case "creationEvenement.jspa":
-			this.getServletContext().getNamedDispatcher("createEvent").forward(request, response);
 			break;
 		case "ajout.jspa":
 			this.getServletContext().getNamedDispatcher("manager").forward(request, response);
@@ -51,7 +47,11 @@ public class Dispatcher extends HttpServlet {
 		String[] uriSplitted = request.getRequestURI().split("/");
 		String page = uriSplitted[uriSplitted.length - 1];
 		switch (page) {
+<<<<<<< HEAD
+		case "connexion.jspa" :
+=======
 		case "connexion.action":
+>>>>>>> 43c8b771cd18c2b7d4620825ed3f0e0ba42c5889
 			// On verifie les identifiants ici
 
 			request.setAttribute("idError", "<li>L'adresse mail saisie est incorrecte</li>");
@@ -61,11 +61,19 @@ public class Dispatcher extends HttpServlet {
 		case "inscription.jspa" :
 			this.getServletContext().getNamedDispatcher("register").forward( request, response );
 			break;
+<<<<<<< HEAD
+		case "consultation.jspa" :
+			this.getServletContext().getNamedDispatcher("displayer").forward( request, response );
+			break;
+		case "ajout.jspa" :
+			this.getServletContext().getNamedDispatcher("manager").forward( request, response );
+=======
 		case "consultation.action":
 			this.getServletContext().getNamedDispatcher("displayer").forward(request, response);
 			break;
 		case "creationEvenement.action":
 			this.getServletContext().getNamedDispatcher("createEvent").forward(request, response);
+>>>>>>> 43c8b771cd18c2b7d4620825ed3f0e0ba42c5889
 			break;
 		case "ajout.action":
 			this.getServletContext().getNamedDispatcher("manager").forward(request, response);
