@@ -15,22 +15,27 @@ public class Dispatcher extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		String[] uriSplitted = request.getRequestURI().split("/");
-		String page = uriSplitted[uriSplitted.length - 1];
+
+
+		String page = uriSplitted[uriSplitted.length -1];
+		System.out.println("page : " + page);
 		switch (page) {
-		case "connexion.action":
-			this.getServletContext().getNamedDispatcher("logger").forward(request, response);
+		case "connexion.jspa" :
+			this.getServletContext().getNamedDispatcher("logger").forward( request, response );
 			break;
-		case "inscription.action":
-			this.getServletContext().getNamedDispatcher("register").forward(request, response);
+		case "inscription.jspa" :
+			this.getServletContext().getNamedDispatcher("register").forward( request, response );
 			break;
-		case "consultation.action":
-			this.getServletContext().getNamedDispatcher("displayer").forward(request, response);
+		case "consultation.jspa" :
+			this.getServletContext().getNamedDispatcher("displayer").forward( request, response );
+
 			break;
-		case "creationEvenement.action":
+		case "creationEvenement.jspa":
 			this.getServletContext().getNamedDispatcher("createEvent").forward(request, response);
 			break;
-		case "ajout.action":
+		case "ajout.jspa":
 			this.getServletContext().getNamedDispatcher("manager").forward(request, response);
 			break;
 
@@ -48,8 +53,7 @@ public class Dispatcher extends HttpServlet {
 		switch (page) {
 		case "connexion.action":
 			// On verifie les identifiants ici
-			// On initialise la session, et on redirige en fonction du succès ou
-			// de l'échec de l'authentification
+
 			request.setAttribute("idError", "<li>L'adresse mail saisie est incorrecte</li>");
 			request.setAttribute("mdpError", "<li>Le mot de passe saisi est incorrect</li>");
 			this.getServletContext().getNamedDispatcher("logger").forward(request, response);
@@ -71,6 +75,7 @@ public class Dispatcher extends HttpServlet {
 			break;
 		}
 	}
+
 
 	public void init() throws ServletException {
 		super.init();
