@@ -65,6 +65,7 @@ public class Event {
 
         this.participants = new HashSet<>();
         this.participants.add(creator);
+        creator.addEvent(this);
     }
 
 

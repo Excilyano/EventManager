@@ -21,13 +21,19 @@ public class ListeEvenementController extends HttpServlet {
 	private static final long serialVersionUID = -3765777634990243190L;
 
 	private EventService evtService;
+	private UserService userService;
 	
 	protected void doGet (HttpServletRequest request,
 			HttpServletResponse response)
 			throws ServletException, IOException {
-		List<Event> evenements = this.evtService.findAll();
-		System.out.println(evenements.size());
-		request.setAttribute("evenements", evenements);
+		request.getSession().setAttribute("sessionUser", 2);
+		User user = userService.find(request.getSession().getAttribute("sessionUser"));
+		List<Event> evenementsPerso = this.evtService.getPersonalEvent(user);
+		request.setAttribute("evenementsPerso", evenementsPerso);
+		List<Event> evenementsParticipate = this.evtService.getParticipateEvent(user);
+		request.setAttribute("evenementsParticipate", evenementsParticipate);
+		List<Event> evenementsAll = this.evtService.findAll();
+		request.setAttribute("evenementsAll", evenementsAll);
 		this.getServletContext().getRequestDispatcher( "/WEB-INF/views/displayEvent.jsp" ).forward( request, response );
 	}
 	
@@ -40,8 +46,8 @@ public class ListeEvenementController extends HttpServlet {
 	public void init() throws ServletException {
 		super.init();
 		evtService = new EventService();
+		userService = new UserService();
 		
-		UserService userService = new UserService();
 		User john = new User("Jonh","Do","john.do@gmail.com","azerty");
         userService.create(john);
 		Event event = new Event("Training JEE",new Date(), new Date(), john);
