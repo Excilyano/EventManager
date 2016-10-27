@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <jsp:directive.include file="/WEB-INF/imports.jsp" />
 <title>My Agenda</title>
 </head>
@@ -13,30 +13,30 @@
 
 		<div id="page-content-wrapper">
 			<div>
-				<form class="col-lg-6 formulaire">
+				<form class="col-lg-6 formulaire" action="inscription.jspa" method="post">
 					<legend>Inscription</legend>
 					${msgErreur}
 					<%-- 		${pageContext.request.contextPath} --%>
 					<div class="form-group row">
-						<label for="nom" class="col-xs-3 col-form-label">Nom* </label>
+						<label for="name" class="col-xs-3 col-form-label">Nom* </label>
 						<div class="col-xs-9">
-							<input class="form-control" type="text"
-								placeholder="Votre nom..." id="nom">
+							<input class="form-control" type="text" name="lastname"
+								placeholder="Votre nom..." id="name">
 						</div>
 					</div>
 					<div class="form-group row">
-						<label for="prenom" class="col-xs-3 col-form-label">Prénom*
+						<label for="firstname" class="col-xs-3 col-form-label">Prénom*
 							</label>
 						<div class="col-xs-9">
-							<input class="form-control" type="text" id="prenom"
+							<input class="form-control" type="text" id="firstname" name="firstname"
 								placeholder="Votre prénom...">
 						</div>
 					</div>
 					<div class="form-group row">
-						<label for="societe" class="col-xs-3 col-form-label">Société
+						<label for="company" class="col-xs-3 col-form-label">Société
 							</label>
 						<div class="col-xs-9">
-							<input class="form-control" type="text" id="societe"
+							<input class="form-control" type="text" id="company" name="company"
 								placeholder="Nom de société...">
 						</div>
 					</div>
@@ -44,27 +44,27 @@
 						<label for="mail" class="col-xs-3 col-form-label">Adresse
 							mail* </label>
 						<div class="col-xs-9">
-							<input class="form-control" type="text" id="mail"
+							<input class="form-control" type="text" id="mail" name="mail"
 								placeholder="Votre adresse mail...">
 						</div>
 					</div>
 					<div class="form-group row">
-						<label for="mdp" class="col-xs-3 col-form-label">Mot de
+						<label for="password" class="col-xs-3 col-form-label">Mot de
 							passe* </label>
 						<div class="col-xs-9">
-							<input class="form-control" type="password" id="mdp">
+							<input class="form-control" type="password" id="password" name="password">
 						</div>
 					</div>
 					<div class="form-group row">
-						<label for="verifmdp" class="col-xs-3 col-form-label">Confirmer
+						<label for="checkpwd" class="col-xs-3 col-form-label">Confirmer
 							mot de passe* </label>
 						<div class="col-xs-9">
-							<input class="form-control" type="password" id="verifmdp">
+							<input class="form-control" type="password" id="checkpwd" name="checkpwd">
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-xs-9 col-xs-offset-3">
-							<button type="button" class="btn btn-primary btn-lg">S'inscrire</button>
+							<button type="submit" class="btn btn-primary btn-lg">S'inscrire</button>
 						</div>
 					</div>
 				</form>
