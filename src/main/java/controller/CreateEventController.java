@@ -79,12 +79,12 @@ public class CreateEventController extends HttpServlet {
 
 			eventService.create(event);
 			request.setAttribute("msgSucess",
-					"Succès de la création de l'événement qui peut être consulté via le lien : ");
+					"SuccÃ©s de la crÃ©ation de l'Ã©vÃ©nement qui peut Ãªtre consultÃ© via le lien : ");
 			this.getServletContext().getRequestDispatcher(viewDisplayEventJSP).forward(request, response);
 
 		} catch (ParseException ex) {
 			System.out.println("Exception " + ex);
-			request.setAttribute("msgError", "Erreur lors du traitement de la création de l'événement.");
+			request.setAttribute("msgError", "Erreur lors du traitement de la crÃ©ation de l'Ã©vÃ¨nement.");
 			request.setAttribute(PARAM_TITLE, title);
 			request.setAttribute(PARAM_DESCRIPTION, description);
 			request.setAttribute(PARAM_LOCATION, location);
