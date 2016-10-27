@@ -58,8 +58,8 @@ public class Dispatcher extends HttpServlet {
 			request.setAttribute("mdpError", "<li>Le mot de passe saisi est incorrect</li>");
 			this.getServletContext().getNamedDispatcher("logger").forward(request, response);
 			break;
-		case "inscription.action":
-			this.getServletContext().getNamedDispatcher("register").forward(request, response);
+		case "inscription.jspa" :
+			this.getServletContext().getNamedDispatcher("register").forward( request, response );
 			break;
 		case "consultation.action":
 			this.getServletContext().getNamedDispatcher("displayer").forward(request, response);
