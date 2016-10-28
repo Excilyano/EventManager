@@ -36,6 +36,7 @@ public class CreateEventController extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO
 		this.getServletContext().getRequestDispatcher(viewCreateEventJSP).forward(request, response);
+		System.out.println("passed here");
 	}
 
 	/**
