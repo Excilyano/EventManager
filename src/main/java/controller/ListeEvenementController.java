@@ -50,7 +50,7 @@ public class ListeEvenementController extends HttpServlet {
 		
 		User john = new User("Jonh","Do","john.do@gmail.com","azerty");
         userService.create(john);
-		Event event = new Event("Training JEE",new Date(), new Date(), john);
+		Event event = new Event("Training JEE", "lieu", new Date(), new Date(), john);
 		evtService.create(event);
 	}
 }
