@@ -21,4 +21,12 @@ public class UserService extends CrudAbstractServiceImpl<User> {
         query.setParameter("mEmail",email);
         return query.getResultList().isEmpty() ? false : true;
     }
+
+    public User checkLogin(String email, String password){
+        TypedQuery<User> query = em.createQuery("select u from User u where u.email like :mEmail and u.password like :mPassword",User.class);
+        query.setParameter("mEmail",email);
+        query.setParameter("mPassword",password);
+        User user = query.getResultList().get(0);
+        return user;
+    }
 }
