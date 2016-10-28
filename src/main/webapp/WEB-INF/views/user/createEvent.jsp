@@ -16,7 +16,7 @@
 		<!-- /#sidebar-wrapper -->
 		<div id="page-content-wrapper">
 			<div>
-				<form class="col-lg-10 formulaire" action="creationEvenement.action"
+				<form class="col-lg-10 formulaire"
 					method="POST">
 					<legend>Création d'un événement</legend>
 					<c:if test="${not empty msgError}">
@@ -38,7 +38,7 @@
 						<label for="description" class="col-xs-3 col-form-label">Description*
 						</label>
 						<div class="col-xs-9">
-							<textarea required class="form-control" rows="4" type="text"
+							<textarea class="form-control" rows="4" type="text"
 								id="description" name="description"
 								placeholder="Description de l'événement">${description }</textarea>
 						</div>
@@ -54,7 +54,7 @@
 					</div>
 					<div class="form-group row">
 						<label for="datetimepickerfirst" class="col-xs-3 col-form-label">Date
-							et heure début </label>
+							et heure début *</label>
 						<div class="col-xs-4">
 							<input required type='text' class="form-control"
 								id='datetimepickerfirst' name="datetimepickerfirst" />
@@ -63,7 +63,7 @@
 
 					<div class="form-group row">
 						<label for="datetimepickerend" class="col-xs-3 col-form-label">Date
-							et heure fin </label>
+							et heure fin *</label>
 						<div class="col-xs-4">
 							<input required type='text' class="form-control"
 								id='datetimepickerend' name="datetimepickerend" />

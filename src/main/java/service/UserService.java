@@ -3,6 +3,7 @@ package service;
 import entities.User;
 
 import javax.persistence.TypedQuery;
+import java.util.List;
 
 /**
  * Created by Steeve Sinigaglia on 17/10/2016.
@@ -20,5 +21,16 @@ public class UserService extends CrudAbstractServiceImpl<User> {
         TypedQuery<User> query = em.createQuery("select u from User u where u.email like :mEmail", User.class);
         query.setParameter("mEmail",email);
         return query.getResultList().isEmpty() ? false : true;
+    }
+
+    public User checkLogin(String email, String password){
+        TypedQuery<User> query = em.createQuery("select u from User u where u.email like :mEmail and u.password like :mPassword",User.class);
+        query.setParameter("mEmail",email);
+        query.setParameter("mPassword",password);
+        List<User> users = query.getResultList();
+        if (users.isEmpty()){
+            return null;
+        }
+        return users.get(0);
     }
 }

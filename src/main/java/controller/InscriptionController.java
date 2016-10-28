@@ -93,6 +93,7 @@ public class InscriptionController extends AbstractController {
                 user.setCompany(company);
 //            }
             userService.create(user);
+            response.sendRedirect("connexion.jspa");
         } else {
             this.buildAndAttachErrorMessage(request, "Champs incorrect", errorList);
             request.setAttribute("firstname",firstname);

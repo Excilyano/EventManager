@@ -41,4 +41,16 @@ public abstract class AbstractController extends HttpServlet {
         errorMessage += "</div>";
         req.setAttribute("msgErreur", errorMessage);
     }
+
+    protected void buildAndAttachErrorMessage(HttpServletRequest req, String bodyMessage, String... errors){
+        String errorMessage = "<div class=\"alert alert-danger\">"
+                + "<b>" + bodyMessage + "</b>";
+
+        for (String e : errors) {
+            errorMessage += "<ul> - " + e + "</ul>";
+        }
+
+        errorMessage += "</div>";
+        req.setAttribute("msgErreur", errorMessage);
+    }
 }
