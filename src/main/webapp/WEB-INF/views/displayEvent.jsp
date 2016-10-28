@@ -40,7 +40,7 @@
 						<a href="javascript:hide('createdEvt_${evt.id}')" class="btn btn-primary">Retour</a>
 					</div>
 				</c:forEach>
-				<div class="evenement creerEvenement">
+				<div class="evenement creerEvenement" onclick="redirect('creationEvenement.jspa')">
 					<h4>Creer un événement</h4>
 					<span class="glyphicon glyphicon-plus perso-glyphicon"></span>
 				</div>

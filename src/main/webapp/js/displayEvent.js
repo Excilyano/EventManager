@@ -10,3 +10,7 @@ function hide(id) {
 	document.getElementById("calque").style.display = "none";
 	document.getElementById(id).style.display = "none";
 }
+
+function redirect(url){
+	window.location.href = url;
+}
