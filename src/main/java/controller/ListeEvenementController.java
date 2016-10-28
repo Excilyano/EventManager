@@ -26,7 +26,7 @@ public class ListeEvenementController extends HttpServlet {
 	protected void doGet (HttpServletRequest request,
 			HttpServletResponse response)
 			throws ServletException, IOException {
-		request.getSession().setAttribute("sessionUser", 2);
+		System.out.println("ETIENNE come here");
 		User user = userService.find(request.getSession().getAttribute("sessionUser"));
 		List<Event> evenementsPerso = this.evtService.getPersonalEvent(user);
 		request.setAttribute("evenementsPerso", evenementsPerso);
@@ -47,10 +47,5 @@ public class ListeEvenementController extends HttpServlet {
 		super.init();
 		evtService = new EventService();
 		userService = new UserService();
-		
-		User john = new User("Jonh","Do","john.do@gmail.com","azerty");
-        userService.create(john);
-		Event event = new Event("Training JEE", "lieu", new Date(), new Date(), john);
-		evtService.create(event);
 	}
 }

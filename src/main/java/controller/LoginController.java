@@ -56,12 +56,12 @@ public class LoginController extends AbstractController {
 		if (authentificatedUser != null){
 			HttpSession session = request.getSession();
 			session.setAttribute("sessionUser",authentificatedUser.getId());
-			this.getServletContext().getRequestDispatcher( "/WEB-INF/views/displayEvent.jsp" ).forward( request, response );
+			response.sendRedirect("consultation.jspa");
 		} else {
 			this.buildAndAttachErrorMessage(request,"Authentification impossible","L'adresse email ou le mot de passe sont incorrects");
 			request.setAttribute("email",email);
 			request.setAttribute("password",password);
-			this.getServletContext().getRequestDispatcher("/WEB-INF/views/inscription.jsp").forward(request, response);
+			this.getServletContext().getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
 
 		}
 	}

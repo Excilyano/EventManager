@@ -28,7 +28,7 @@
 						<h3>${evt.title}</h3>
 						<p><b>Début :</b> ${evt.startingDate}</p>
 						<p><b>Fin :</b> ${evt.endDate}</p>
-						<p><b>Adresse :</b> ${evt.adresse}</p>
+						<p><b>Adresse :</b> ${evt.location}</p>
 						<p>${evt.description}</p>
 						<p><b>Participants :</b></p>
 						<div class="scrollable">
@@ -56,7 +56,7 @@
 						<h3>${evt.title}</h3>
 						<p><b>Début :</b> ${evt.startingDate}</p>
 						<p><b>Fin :</b> ${evt.endDate}</p>
-						<p><b>Adresse :</b> ${evt.adresse}</p>
+						<p><b>Adresse :</b> ${evt.location}</p>
 						<p>${evt.description}</p>
 						<p><b>Participants :</b></p>
 						<div class="scrollable">
@@ -80,7 +80,7 @@
 						<h3>${evt.title}</h3>
 						<p><b>Début :</b> ${evt.startingDate}</p>
 						<p><b>Fin :</b> ${evt.endDate}</p>
-						<p><b>Adresse :</b> ${evt.adresse}</p>
+						<p><b>Adresse :</b> ${evt.location}</p>
 						<p>${evt.description}</p>
 						<p><b>Participants :</b></p>
 						<div class="scrollable">
