@@ -114,6 +114,10 @@ public class User {
 		return events;
 	}
 
+    public void setEvents(Set<Event> set) {
+		this.events=set;
+	}
+    
     @Override
     public String toString() {
         return firstName + " " + lastName;
