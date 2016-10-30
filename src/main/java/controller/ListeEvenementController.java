@@ -65,12 +65,19 @@ public class ListeEvenementController extends HttpServlet {
 		else {
 			if (request.getParameter("button") != null) {
 				if (request.getParameter("button").equals("registerAction"))
-					this.registerAction(request);
+					this.registerAction(request, response);
 				else if (request.getParameter("button").equals("deleteAction"))
-					this.deleteAction(request);
+					this.deleteAction(request, response);
+				else if (request.getParameter("button").equals("updateAction"))
+					this.updateAction(request, response);
 			}
-			response.sendRedirect("consultation.jspa");
 		}
+	}
+
+	private void updateAction(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String eventId=  request.getParameter("eventId");
+		response.sendRedirect("updateEvent.jspa?id="+eventId);
+
 	}
 
 	public void init() throws ServletException {
@@ -84,7 +91,7 @@ public class ListeEvenementController extends HttpServlet {
 	 * 
 	 * @param req
 	 */
-	private void registerAction(HttpServletRequest req) {
+	private void registerAction(HttpServletRequest req, HttpServletResponse response) throws IOException {
 		User user = userService.find(req.getSession().getAttribute("sessionUser"));
 		if (req.getParameter("eventId") != null) {
 			int idEvent = Integer.parseInt(req.getParameter("eventId"));
@@ -98,6 +105,7 @@ public class ListeEvenementController extends HttpServlet {
 				}
 			}
 		}
+		response.sendRedirect("consultation.jspa");
 	}
 
 	/**
@@ -105,7 +113,7 @@ public class ListeEvenementController extends HttpServlet {
 	 * 
 	 * @param req
 	 */
-	private void deleteAction(HttpServletRequest req) {
+	private void deleteAction(HttpServletRequest req, HttpServletResponse response) throws IOException {
 		if (req.getParameter("eventId") != null) {
 			int idEvent = Integer.parseInt(req.getParameter("eventId"));
 			Event event = evtService.find(idEvent);
@@ -116,5 +124,6 @@ public class ListeEvenementController extends HttpServlet {
 			this.evtService.update(event);
 			this.evtService.delete(event);
 		}
+		response.sendRedirect("consultation.jspa");
 	}
 }
