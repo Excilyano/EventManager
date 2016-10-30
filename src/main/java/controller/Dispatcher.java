@@ -53,7 +53,6 @@ public class Dispatcher extends HttpServlet {
                 this.getServletContext().getNamedDispatcher("createEvent").forward(request, response);
                 break;
             case "updateEvent.jspa":
-                System.out.println("update here");
                 int idEvt = Integer.parseInt(request.getParameter("id"));
                 Event event = eventService.find(idEvt);
                 if (request.getSession().getAttribute("sessionUser") == null) {
@@ -63,6 +62,10 @@ public class Dispatcher extends HttpServlet {
                 } else {
                     response.sendRedirect("consultation.jspa");
                 }
+                break;
+            case "logout.jspa":
+                request.getSession().invalidate();
+                response.sendRedirect("connexion.jspa");
                 break;
             default:
                 this.getServletContext().getNamedDispatcher("logger").forward(request, response);
