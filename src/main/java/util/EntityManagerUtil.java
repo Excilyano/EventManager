@@ -31,6 +31,8 @@ public class EntityManagerUtil {
         UserService userService = new UserService();
         userService.create(user);
 
+        userService.create(new User("a","a","azerty@gmail.com","a"));
+
         Event event = new Event("J2ee","B117",new Date(),new Date(), user);
         EventService eventService = new EventService();
         eventService.create(event);

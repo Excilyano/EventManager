@@ -1,5 +1,10 @@
 package controller;
 
+import entities.Event;
+import entities.User;
+import service.EventService;
+import service.UserService;
+
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -13,6 +18,8 @@ public class Dispatcher extends HttpServlet {
      */
     private static final long serialVersionUID = 1392340765071245696L;
 
+    private EventService eventService;
+    private UserService userService;
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         dispatch(request, response);
 
@@ -45,7 +52,15 @@ public class Dispatcher extends HttpServlet {
                 this.getServletContext().getNamedDispatcher("createEvent").forward(request, response);
                 break;
             case "updateEvent.jspa":
-                this.getServletContext().getNamedDispatcher("updateEvent").forward(request, response);
+                int idEvt = Integer.parseInt(request.getParameter("id"));
+                Event event = eventService.find(idEvt);
+                if (request.getSession().getAttribute("sessionUser") == null){
+                    response.sendRedirect("connexion.jspa");
+                } else if (event.getCreator().equals(userService.find(Integer.parseInt(request.getSession().getAttribute("sessionUser").toString())))) {
+                    this.getServletContext().getNamedDispatcher("updateEvent").forward(request, response);
+                } else {
+                    response.sendRedirect("consultation.jspa");
+                }
                 break;
             default:
                 this.getServletContext().getNamedDispatcher("logger").forward(request, response);
@@ -55,5 +70,7 @@ public class Dispatcher extends HttpServlet {
 
     public void init() throws ServletException {
         super.init();
+        eventService = new EventService();
+        userService = new UserService();
     }
 }
