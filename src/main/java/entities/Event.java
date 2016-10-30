@@ -1,6 +1,9 @@
 package entities;
 
 import javax.persistence.*;
+
+import org.hibernate.annotations.Cascade;
+
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -10,7 +13,7 @@ import java.util.Set;
  */
 @Table(name = "EVENT")
 @Entity
-public class Event {
+public class Event implements Comparable<Event> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -160,4 +163,9 @@ public class Event {
                 ", participants=" + participants +
                 '}';
     }
+
+	@Override
+	public int compareTo(Event evt) {
+		return this.getStartingDate().compareTo(evt.getStartingDate());
+	}
 }

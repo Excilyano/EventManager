@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class RestrictionFilterUser implements Filter{
-	private static final String PAGE_CONNEXION = "/connexion.action";
+	private static final String PAGE_CONNEXION = "connexion.jspa";
 	private static final String ATT_SESSION_USER = "sessionUser";
 	
 	@Override
@@ -32,7 +32,7 @@ public class RestrictionFilterUser implements Filter{
 		
         HttpSession session = request.getSession();
         if(session.getAttribute(ATT_SESSION_USER) == null){
-        	request.getRequestDispatcher(PAGE_CONNEXION).forward(request, response);
+            response.sendRedirect(PAGE_CONNEXION);
         }
         else {
         	chain.doFilter(request, response);

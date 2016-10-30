@@ -33,7 +33,8 @@ public class EntityManagerUtil {
 
         userService.create(new User("a","a","azerty@gmail.com","a"));
 
-        Event event = new Event("J2ee","B117",new Date(),new Date(), user);
+        Event event = new Event("J2ee","B117",new Date(2016-1900,10,02),new Date(2016-1900,10,31), user);
+        event.setHidden(true);
         EventService eventService = new EventService();
         eventService.create(event);
     }

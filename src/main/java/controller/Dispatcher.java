@@ -35,6 +35,7 @@ public class Dispatcher extends HttpServlet {
 
 
         String page = uriSplitted[uriSplitted.length - 1];
+
         switch (page) {
             case "connexion.jspa":
                 this.getServletContext().getNamedDispatcher("logger").forward(request, response);
@@ -52,6 +53,7 @@ public class Dispatcher extends HttpServlet {
                 this.getServletContext().getNamedDispatcher("createEvent").forward(request, response);
                 break;
             case "updateEvent.jspa":
+                System.out.println("update here");
                 int idEvt = Integer.parseInt(request.getParameter("id"));
                 Event event = eventService.find(idEvt);
                 if (request.getSession().getAttribute("sessionUser") == null) {
