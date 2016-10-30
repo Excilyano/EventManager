@@ -1,8 +1,11 @@
 package controller;
 
 import java.io.IOException;
-import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -22,30 +25,97 @@ public class ListeEvenementController extends HttpServlet {
 
 	private EventService evtService;
 	private UserService userService;
-	
-	protected void doGet (HttpServletRequest request,
-			HttpServletResponse response)
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("ETIENNE come here");
 		User user = userService.find(request.getSession().getAttribute("sessionUser"));
+
 		List<Event> evenementsPerso = this.evtService.getPersonalEvent(user);
 		request.setAttribute("evenementsPerso", evenementsPerso);
 		List<Event> evenementsParticipate = this.evtService.getParticipateEvent(user);
 		request.setAttribute("evenementsParticipate", evenementsParticipate);
 		List<Event> evenementsAll = this.evtService.findAll();
 		request.setAttribute("evenementsAll", evenementsAll);
-		this.getServletContext().getRequestDispatcher( "/WEB-INF/views/displayEvent.jsp" ).forward( request, response );
+		Map<Integer, Boolean> isRegister = new HashMap<>();
+		for (Event e : evenementsAll) {
+			if (e.getParticipants().contains(user))
+				isRegister.put(e.getId(), true);
+			else
+				isRegister.put(e.getId(), false);
+		}
+		Map<Integer, Boolean> isCreator = new HashMap<>();
+		for (Event e : evenementsPerso) {
+			isCreator.put(e.getId(), true);
+		}
+		request.setAttribute("isRegister", isRegister);
+		request.setAttribute("isCreator", isCreator);
+		System.out.println("Test : " + user.getEvents());
+		this.getServletContext().getRequestDispatcher("/WEB-INF/views/displayEvent.jsp").forward(request, response);
 	}
-	
-	protected void doPost (HttpServletRequest request,
-			HttpServletResponse response)
+
+	/**
+	 * Traitement de l'inscription, désinscription de l'utilisateur à
+	 * l'événement, et de la suppresion d'un event puis on redirige vers la page
+	 * consultation empêchant ainsi des problème lié au rafraichissement de la
+	 * page.
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO
+		if (request.getSession().getAttribute("sessionUser") == null)
+			response.sendRedirect("connexion.jspa");
+		else {
+			if (request.getParameter("button") != null) {
+				if (request.getParameter("button").equals("registerAction"))
+					this.registerAction(request);
+				else if (request.getParameter("button").equals("deleteAction"))
+					this.deleteAction(request);
+			}
+			response.sendRedirect("consultation.jspa");
+		}
 	}
-	
+
 	public void init() throws ServletException {
 		super.init();
 		evtService = new EventService();
 		userService = new UserService();
+	}
+
+	/**
+	 * L'utiliser est ajouté ou supprimer à l'event
+	 * 
+	 * @param req
+	 */
+	private void registerAction(HttpServletRequest req) {
+		User user = userService.find(req.getSession().getAttribute("sessionUser"));
+		if (req.getParameter("eventId") != null) {
+			int idEvent = Integer.parseInt(req.getParameter("eventId"));
+			Event event = evtService.find(idEvent);
+			if (event.getCreator() == user) {
+				if (this.evtService.addUserEvent(idEvent, user)) {
+					this.userService.addUserEvent(event, user);
+				} else {
+					this.evtService.removeUserEvent(idEvent, user);
+					this.userService.removeUserEvent(event, user);
+				}
+			}
+		}
+	}
+
+	/**
+	 * Supprimer l'évenement
+	 * 
+	 * @param req
+	 */
+	private void deleteAction(HttpServletRequest req) {
+		if (req.getParameter("eventId") != null) {
+			int idEvent = Integer.parseInt(req.getParameter("eventId"));
+			Event event = evtService.find(idEvent);
+			for (User u : event.getParticipants())
+				this.userService.removeUserEvent(event, u);
+			Set<User> set = new HashSet<>();
+			event.setParticipants(set);
+			this.evtService.update(event);
+			this.evtService.delete(event);
+		}
 	}
 }

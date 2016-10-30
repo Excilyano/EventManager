@@ -82,7 +82,6 @@ public class CreateEventController extends HttpServlet {
                     "Succés de la création de l'événement qui peut être consulté via le lien : ");
             response.sendRedirect(viewDisplayEventJSP);
         } catch (ParseException ex) {
-            System.out.println("Exception " + ex);
             request.setAttribute("msgError", "Erreur lors du traitement de la création de l'évènement.");
             request.setAttribute(PARAM_TITLE, title);
             request.setAttribute(PARAM_DESCRIPTION, description);

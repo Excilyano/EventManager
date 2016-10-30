@@ -1,9 +1,11 @@
 package service;
 
+import entities.Event;
 import entities.User;
 
 import javax.persistence.TypedQuery;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Steeve Sinigaglia on 17/10/2016.
@@ -33,4 +35,22 @@ public class UserService extends CrudAbstractServiceImpl<User> {
         }
         return users.get(0);
     }
+    
+    public boolean removeUserEvent(Event event, User user) {
+		boolean bool = false;
+		Set<Event> setEvent = user.getEvents();
+		bool = setEvent.remove(event);
+		user.setEvents(setEvent);
+		this.update(user);
+		return bool;
+	}
+
+	public boolean addUserEvent(Event event, User user) {
+		boolean bool = false;
+		Set<Event> setEvent = user.getEvents();
+		bool = setEvent.add(event);
+		user.setEvents(setEvent);
+		this.update(user);
+		return bool;
+	}
 }
