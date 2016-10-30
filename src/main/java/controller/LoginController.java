@@ -49,6 +49,7 @@ public class LoginController extends AbstractController {
 			HttpServletResponse response)
 			throws ServletException, IOException {
 
+		System.out.println("do post du login?");
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 
