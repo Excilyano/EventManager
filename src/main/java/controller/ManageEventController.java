@@ -3,6 +3,7 @@ package controller;
 import entities.Event;
 import entities.User;
 import service.EventService;
+import service.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +18,9 @@ import java.util.Date;
  */
 public class ManageEventController extends AbstractController {
 
-    EventService eventService;
+    private EventService eventService;
+    private UserService userService;
+
     private final String viewCreateEventJSP = "/WEB-INF/views/user/createEvent.jsp";
     private final String viewDisplayEventJSP = "consultation.jspa";
     private final String PARAM_TITLE = "title";
@@ -32,19 +35,23 @@ public class ManageEventController extends AbstractController {
         int idEvt = Integer.parseInt(req.getParameter("id"));
         Event event = eventService.find(idEvt);
 
-//        if (event.getCreator().equals(req.getSession().getAttribute("sessionUser"))){
-            req.setAttribute("event",event);
+        if (event.getCreator().getId()== (int)(req.getSession().getAttribute("sessionUser"))) {
+            System.out.println("ok");
+            req.setAttribute("event", event);
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-        String dateBegin = simpleDateFormat.format(event.getStartingDate());
-        String dateEnd = simpleDateFormat.format(event.getEndDate());
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+            String dateBegin = simpleDateFormat.format(event.getStartingDate());
+            String dateEnd = simpleDateFormat.format(event.getEndDate());
 
-        req.setAttribute("dateBegin",dateBegin);
-        req.setAttribute("dateEnd",dateEnd);
-        req.setAttribute("isUpdate",true);
-        System.out.println("DO GET DU MANAGE    ");
-        this.getServletContext().getRequestDispatcher(viewCreateEventJSP).forward(req, resp);
-//        }
+            req.setAttribute("dateBegin", dateBegin);
+            req.setAttribute("dateEnd", dateEnd);
+            req.setAttribute("isUpdate", true);
+            System.out.println("DO GET DU MANAGE    ");
+
+            System.out.println(event.getCreator());
+
+            this.getServletContext().getRequestDispatcher(viewCreateEventJSP).forward(req, resp);
+        }
     }
 
     @Override
@@ -96,5 +103,6 @@ public class ManageEventController extends AbstractController {
     @Override
     public void init() throws ServletException {
         eventService = new EventService();
+        userService = new UserService();
     }
 }
