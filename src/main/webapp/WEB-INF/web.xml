@@ -58,7 +58,7 @@
 
 	<filter-mapping>
 		<filter-name>RestrictionFilterUser</filter-name>
-		<url-pattern>/WEB-INF/views/user/test/</url-pattern>
+		<url-pattern>/WEB-INF/views/user/*</url-pattern>
 		<dispatcher>REQUEST</dispatcher>
 		<dispatcher>FORWARD</dispatcher>
 	</filter-mapping>
