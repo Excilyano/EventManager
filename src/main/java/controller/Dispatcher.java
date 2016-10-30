@@ -20,6 +20,7 @@ public class Dispatcher extends HttpServlet {
 
     private EventService eventService;
     private UserService userService;
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         dispatch(request, response);
 
@@ -34,7 +35,6 @@ public class Dispatcher extends HttpServlet {
 
 
         String page = uriSplitted[uriSplitted.length - 1];
-        System.out.println("page : " + page);
         switch (page) {
             case "connexion.jspa":
                 this.getServletContext().getNamedDispatcher("logger").forward(request, response);
@@ -54,7 +54,7 @@ public class Dispatcher extends HttpServlet {
             case "updateEvent.jspa":
                 int idEvt = Integer.parseInt(request.getParameter("id"));
                 Event event = eventService.find(idEvt);
-                if (request.getSession().getAttribute("sessionUser") == null){
+                if (request.getSession().getAttribute("sessionUser") == null) {
                     response.sendRedirect("connexion.jspa");
                 } else if (event.getCreator().equals(userService.find(Integer.parseInt(request.getSession().getAttribute("sessionUser").toString())))) {
                     this.getServletContext().getNamedDispatcher("updateEvent").forward(request, response);

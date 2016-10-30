@@ -35,8 +35,7 @@ public class ManageEventController extends AbstractController {
         int idEvt = Integer.parseInt(req.getParameter("id"));
         Event event = eventService.find(idEvt);
 
-        if (event.getCreator().getId()== (int)(req.getSession().getAttribute("sessionUser"))) {
-            System.out.println("ok");
+        if (event.getCreator().getId() == (int) (req.getSession().getAttribute("sessionUser"))) {
             req.setAttribute("event", event);
 
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
@@ -46,9 +45,6 @@ public class ManageEventController extends AbstractController {
             req.setAttribute("dateBegin", dateBegin);
             req.setAttribute("dateEnd", dateEnd);
             req.setAttribute("isUpdate", true);
-            System.out.println("DO GET DU MANAGE    ");
-
-            System.out.println(event.getCreator());
 
             this.getServletContext().getRequestDispatcher(viewCreateEventJSP).forward(req, resp);
         }
@@ -56,7 +52,6 @@ public class ManageEventController extends AbstractController {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("here");
         String title = req.getParameter(PARAM_TITLE);
         String description = req.getParameter(PARAM_DESCRIPTION);
         String location = req.getParameter(PARAM_LOCATION);
@@ -87,7 +82,6 @@ public class ManageEventController extends AbstractController {
 
 
             eventService.update(event);
-            System.out.println("REDIRECTION3");
             resp.sendRedirect(viewDisplayEventJSP);
         } catch (ParseException ex) {
             System.out.println("Exception " + ex);
