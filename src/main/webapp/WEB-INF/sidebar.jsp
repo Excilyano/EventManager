@@ -7,7 +7,7 @@
 		<li><a href="#">Autre chose ?</a></li>
 	</ul>
 	<p class="logout">
-		<a href="#" class="deconnexion"><span
+		<a href="logout.jspa" class="deconnexion"><span
 			class="glyphicon glyphicon-off"></span> Déconnexion</a>
 	</p>
 	<p class="decouvrir">
