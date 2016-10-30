@@ -50,6 +50,11 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
+	<servlet>
+		<servlet-name>updateEvent</servlet-name>
+		<servlet-class>controller.ManageEventController</servlet-class>
+	</servlet>
+
 	<!-- filter -->
 	<filter>
 		<filter-name>RestrictionFilterUser</filter-name>

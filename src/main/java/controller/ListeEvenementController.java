@@ -15,37 +15,37 @@ import service.EventService;
 import service.UserService;
 
 public class ListeEvenementController extends HttpServlet {
-	/**
-	 * Auto-generated uid
-	 */
-	private static final long serialVersionUID = -3765777634990243190L;
+    /**
+     * Auto-generated uid
+     */
+    private static final long serialVersionUID = -3765777634990243190L;
 
-	private EventService evtService;
-	private UserService userService;
-	
-	protected void doGet (HttpServletRequest request,
-			HttpServletResponse response)
-			throws ServletException, IOException {
-		System.out.println("ETIENNE come here");
-		User user = userService.find(request.getSession().getAttribute("sessionUser"));
-		List<Event> evenementsPerso = this.evtService.getPersonalEvent(user);
-		request.setAttribute("evenementsPerso", evenementsPerso);
-		List<Event> evenementsParticipate = this.evtService.getParticipateEvent(user);
-		request.setAttribute("evenementsParticipate", evenementsParticipate);
-		List<Event> evenementsAll = this.evtService.findAll();
-		request.setAttribute("evenementsAll", evenementsAll);
-		this.getServletContext().getRequestDispatcher( "/WEB-INF/views/displayEvent.jsp" ).forward( request, response );
-	}
-	
-	protected void doPost (HttpServletRequest request,
-			HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO
-	}
-	
-	public void init() throws ServletException {
-		super.init();
-		evtService = new EventService();
-		userService = new UserService();
-	}
+    private EventService evtService;
+    private UserService userService;
+
+    protected void doGet(HttpServletRequest request,
+                         HttpServletResponse response)
+            throws ServletException, IOException {
+
+        User user = userService.find(request.getSession().getAttribute("sessionUser"));
+        List<Event> evenementsPerso = this.evtService.getPersonalEvent(user);
+        request.setAttribute("evenementsPerso", evenementsPerso);
+        List<Event> evenementsParticipate = this.evtService.getParticipateEvent(user);
+        request.setAttribute("evenementsParticipate", evenementsParticipate);
+        List<Event> evenementsAll = this.evtService.findAll();
+        request.setAttribute("evenementsAll", evenementsAll);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/views/displayEvent.jsp").forward(request, response);
+    }
+
+    protected void doPost(HttpServletRequest request,
+                          HttpServletResponse response)
+            throws ServletException, IOException {
+        // TODO
+    }
+
+    public void init() throws ServletException {
+        super.init();
+        evtService = new EventService();
+        userService = new UserService();
+    }
 }
