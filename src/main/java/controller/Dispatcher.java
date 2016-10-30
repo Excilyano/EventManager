@@ -37,6 +37,9 @@ public class Dispatcher extends HttpServlet {
             case "creationEvenement.jspa":
                 this.getServletContext().getNamedDispatcher("createEvent").forward(request, response);
                 break;
+            case "updateEvent.jspa":
+                this.getServletContext().getNamedDispatcher("updateEvent").forward(request,response);
+                break;
             default:
                 this.getServletContext().getNamedDispatcher("logger").forward(request, response);
                 break;

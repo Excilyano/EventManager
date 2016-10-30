@@ -31,7 +31,7 @@
 						<div class="col-xs-9">
 							<input class="form-control" required type="text"
 								placeholder="Titre de l'événement..." id="title" name="title"
-								value="${title }">
+								value="${event.title }">
 						</div>
 					</div>
 					<div class="form-group row">
@@ -40,7 +40,7 @@
 						<div class="col-xs-9">
 							<textarea class="form-control" rows="4" type="text"
 								id="description" name="description"
-								placeholder="Description de l'événement">${description }</textarea>
+								placeholder="Description de l'événement">${event.description }</textarea>
 						</div>
 					</div>
 					<div class="form-group row">
@@ -49,7 +49,7 @@
 						<div class="col-xs-9">
 							<input required class="form-control" type="text" id="location"
 								name="location" placeholder="5 rue de la loire.."
-								value="${location }">
+								value="${event.location }">
 						</div>
 					</div>
 					<div class="form-group row">
@@ -57,7 +57,7 @@
 							et heure début *</label>
 						<div class="col-xs-4">
 							<input required type='text' class="form-control"
-								id='datetimepickerfirst' name="datetimepickerfirst" />
+								id='datetimepickerfirst' name="datetimepickerfirst" value="${event.startingDate}"/>
 						</div>
 					</div>
 
@@ -66,16 +66,16 @@
 							et heure fin *</label>
 						<div class="col-xs-4">
 							<input required type='text' class="form-control"
-								id='datetimepickerend' name="datetimepickerend" />
+								id='datetimepickerend' name="datetimepickerend" value="${event.endDate}" />
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="visibility" class="col-xs-3 col-form-label">Rendre
 							visible l'événement </label>
 						<div class="col-xs-5">
-							<input id="visibility" name="visibility" type="checkbox"
-								data-toggle="toggle" data-on="Visible" data-off="Invisible"
-								data-onstyle="success" data-offstyle="danger">
+							<input id="visibility" name="visibility"
+							<c:if test="${event.hidden}"> checked </c:if>
+								   type="checkbox" data-toggle="toggle" data-on="Visible" data-off="Invisible" data-onstyle="success" data-offstyle="danger">
 						</div>
 					</div>
 					<div class="col-xs-9 col-xs-offset-3">
