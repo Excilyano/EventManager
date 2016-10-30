@@ -34,7 +34,7 @@ public class ListeEvenementController extends HttpServlet {
 		request.setAttribute("evenementsPerso", evenementsPerso);
 		List<Event> evenementsParticipate = this.evtService.getParticipateEvent(user);
 		request.setAttribute("evenementsParticipate", evenementsParticipate);
-		List<Event> evenementsAll = this.evtService.findAll();
+		List<Event> evenementsAll = this.evtService.getAllEvent();
 		request.setAttribute("evenementsAll", evenementsAll);
 		Map<Integer, Boolean> isRegister = new HashMap<>();
 		for (Event e : evenementsAll) {
@@ -49,7 +49,6 @@ public class ListeEvenementController extends HttpServlet {
 		}
 		request.setAttribute("isRegister", isRegister);
 		request.setAttribute("isCreator", isCreator);
-		System.out.println("Test : " + user.getEvents());
 		this.getServletContext().getRequestDispatcher("/WEB-INF/views/displayEvent.jsp").forward(request, response);
 	}
 
