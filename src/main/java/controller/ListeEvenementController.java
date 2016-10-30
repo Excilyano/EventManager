@@ -26,13 +26,13 @@ public class ListeEvenementController extends HttpServlet {
 	protected void doGet (HttpServletRequest request,
 			HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("ETIENNE come here");
+		System.out.println(request.getSession().getAttribute("sessionUser"));
 		User user = userService.find(request.getSession().getAttribute("sessionUser"));
 		List<Event> evenementsPerso = this.evtService.getPersonalEvent(user);
 		request.setAttribute("evenementsPerso", evenementsPerso);
 		List<Event> evenementsParticipate = this.evtService.getParticipateEvent(user);
 		request.setAttribute("evenementsParticipate", evenementsParticipate);
-		List<Event> evenementsAll = this.evtService.findAll();
+		List<Event> evenementsAll = this.evtService.getAllEvent();
 		request.setAttribute("evenementsAll", evenementsAll);
 		this.getServletContext().getRequestDispatcher( "/WEB-INF/views/displayEvent.jsp" ).forward( request, response );
 	}
