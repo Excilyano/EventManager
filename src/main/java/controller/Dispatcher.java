@@ -85,8 +85,11 @@ public class Dispatcher extends HttpServlet {
 
         userService.create(new User("a","a","azerty@gmail.com","a"));
 
-        Event event = new Event("J2ee","B117",new Date(2016-1900,10,02),new Date(2016-1900,10,31), user);
-        event.setHidden(true);
-        eventService.create(event);
+        Event eventA = new Event("J2eeA","B117",new Date(2016-1900,10,02),new Date(2016-1900,11,02), user);
+        eventA.setHidden(false);
+
+        Event eventB = new Event("J2eeB","B117",new Date(2016-1900,10,03),new Date(2016-1900,11,03), user);
+        eventB.setHidden(true);
+        eventService.create(eventA);
     }
 }
