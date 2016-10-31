@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,7 +10,7 @@
 
 <title>My Agenda</title>
 </head>
-<body id="background">
+<body>
 	<div id="wrapper">
 		<!-- Sidebar -->
 		<jsp:directive.include file="/WEB-INF/sidebar.jsp" />
@@ -19,11 +20,20 @@
 			<c:forEach var="evt" items="${evenementsPerso}">
 				<div class="evenement" onClick="show('createdEvt_${evt.id}')">
 					<h4>${evt.title}</h4>
+
+					<c:set var="datebeg">
+						<fmt:formatDate pattern="dd/MMM/yy hh:mm"
+							value="${evt.startingDate}" />
+					</c:set>
+					<c:set var="dateend">
+						<fmt:formatDate pattern="dd/MMM/yy hh:mm" value="${evt.endDate}" />
+					</c:set>
+
 					<p>
-						<b>Début :</b> ${evt.startingDate}
+						<b>Début :</b> ${datebeg}
 					</p>
 					<p>
-						<b>Fin :</b> ${evt.endDate}
+						<b>Fin :</b> ${dateend}
 					</p>
 					<p>
 						<b>Nombre de participants : ${evt.participants.size()}</b>
@@ -42,11 +52,19 @@
 			<c:forEach var="evt" items="${evenementsParticipate}">
 				<div class="evenement" onClick="show('createdEvt_${evt.id}')">
 					<h4>${evt.title}</h4>
+					<c:set var="datebeg">
+						<fmt:formatDate pattern="dd/MMM/yy hh:mm"
+							value="${evt.startingDate}" />
+					</c:set>
+					<c:set var="dateend">
+						<fmt:formatDate pattern="dd/MMM/yy hh:mm" value="${evt.endDate}" />
+					</c:set>
+
 					<p>
-						<b>Début :</b> ${evt.startingDate}
+						<b>Début :</b> ${datebeg}
 					</p>
 					<p>
-						<b>Fin :</b> ${evt.endDate}
+						<b>Fin :</b> ${dateend}
 					</p>
 					<p>
 						<b>Nombre de participants : ${evt.participants.size()}</b>
@@ -61,11 +79,19 @@
 				<c:if test="${!evt.hidden }">
 					<div class="evenement" onClick="show('createdEvt_${evt.id}')">
 						<h4>${evt.title}</h4>
+						<c:set var="datebeg">
+							<fmt:formatDate pattern="dd/MMM/yy hh:mm"
+								value="${evt.startingDate}" />
+						</c:set>
+						<c:set var="dateend">
+							<fmt:formatDate pattern="dd/MMM/yy hh:mm" value="${evt.endDate}" />
+						</c:set>
+
 						<p>
-							<b>Début :</b> ${evt.startingDate}
+							<b>Début :</b> ${datebeg}
 						</p>
 						<p>
-							<b>Fin :</b> ${evt.endDate}
+							<b>Fin :</b> ${dateend}
 						</p>
 						<p>
 							<b>Nombre de participants : ${evt.participants.size()}</b>
