@@ -6,6 +6,7 @@ import service.EventService;
 import service.UserService;
 
 import java.io.IOException;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -75,7 +76,17 @@ public class Dispatcher extends HttpServlet {
 
     public void init() throws ServletException {
         super.init();
+
         eventService = new EventService();
         userService = new UserService();
+
+        User user = new User("John","Do","a@a.com","a");
+        userService.create(user);
+
+        userService.create(new User("a","a","azerty@gmail.com","a"));
+
+        Event event = new Event("J2ee","B117",new Date(2016-1900,10,02),new Date(2016-1900,10,31), user);
+        event.setHidden(true);
+        eventService.create(event);
     }
 }
