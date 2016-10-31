@@ -29,9 +29,6 @@ public class InscriptionController extends AbstractController {
                          HttpServletResponse response)
             throws ServletException, IOException {
         this.getServletContext().getRequestDispatcher("/WEB-INF/views/inscription.jsp").forward(request, response);
-        System.out.println("do Get inscription");
-
-
     }
 
     protected void doPost(HttpServletRequest request,
@@ -47,7 +44,6 @@ public class InscriptionController extends AbstractController {
         String password = request.getParameter("password");
         String checkpwd = request.getParameter("checkpwd");
 
-        System.out.println(password + " ? " + checkpwd);
         List<String> errorList = new ArrayList<>();
 
 
@@ -63,10 +59,10 @@ public class InscriptionController extends AbstractController {
             errorList.add("Le nom est requis");
         }
 
-        if (mail.isEmpty()){
+        if (mail.isEmpty()) {
             formOk = false;
             errorList.add("Une adresse email est requise");
-        } else if (userService.checkEmailExist(mail)){
+        } else if (userService.checkEmailExist(mail)) {
             formOk = false;
             errorList.add("L'adresse email est déjà utilisée");
         }
@@ -90,16 +86,16 @@ public class InscriptionController extends AbstractController {
             user.setEmail(mail);
             user.setPassword(password);
 //            if (company != null) {
-                user.setCompany(company);
+            user.setCompany(company);
 //            }
             userService.create(user);
             response.sendRedirect("connexion.jspa");
         } else {
             this.buildAndAttachErrorMessage(request, "Champs incorrect", errorList);
-            request.setAttribute("firstname",firstname);
-            request.setAttribute("lastname",lastname);
-            request.setAttribute("mail",mail);
-            request.setAttribute("company",company);
+            request.setAttribute("firstname", firstname);
+            request.setAttribute("lastname", lastname);
+            request.setAttribute("mail", mail);
+            request.setAttribute("company", company);
             this.getServletContext().getRequestDispatcher("/WEB-INF/views/inscription.jsp").forward(request, response);
         }
     }

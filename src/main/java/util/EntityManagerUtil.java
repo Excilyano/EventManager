@@ -1,8 +1,14 @@
 package util;
 
+import entities.Event;
+import entities.User;
+import service.EventService;
+import service.UserService;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.Date;
 
 /**
  * Created by Steeve Sinigaglia on 17/10/2016.
@@ -15,8 +21,22 @@ public class EntityManagerUtil {
     public static EntityManager getEntityManager(String persistenceUnit){
         if (em==null){
             buildEntityManager(persistenceUnit);
+            buildDataTest();
         }
         return em;
+    }
+
+    private static void buildDataTest() {
+        User user = new User("John","Do","a@a.com","a");
+        UserService userService = new UserService();
+        userService.create(user);
+
+        userService.create(new User("a","a","azerty@gmail.com","a"));
+
+        Event event = new Event("J2ee","B117",new Date(2016-1900,10,02),new Date(2016-1900,10,31), user);
+        event.setHidden(true);
+        EventService eventService = new EventService();
+        eventService.create(event);
     }
 
     private static void buildEntityManager(String persistenceUnit) {
