@@ -1,11 +1,7 @@
 package controller;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -28,12 +24,17 @@ public class ListeEvenementController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        User user = userService.find(request.getSession().getAttribute("sessionUser"));
+        User user = null;
+        List<Event> evenementsPerso = new ArrayList<>();
+        if (request.getSession().getAttribute("sessionUser") != null){
+            user = userService.find(request.getSession().getAttribute("sessionUser"));
 
-        List<Event> evenementsPerso = this.evtService.getPersonalEvent(user);
-        request.setAttribute("evenementsPerso", evenementsPerso);
-        List<Event> evenementsParticipate = this.evtService.getParticipateEvent(user);
-        request.setAttribute("evenementsParticipate", evenementsParticipate);
+            evenementsPerso = this.evtService.getPersonalEvent(user);
+            request.setAttribute("evenementsPerso", evenementsPerso);
+            List<Event> evenementsParticipate = this.evtService.getParticipateEvent(user);
+            request.setAttribute("evenementsParticipate", evenementsParticipate);
+        }
+
         List<Event> evenementsAll = this.evtService.getAllEvent();
         request.setAttribute("evenementsAll", evenementsAll);
         Map<Integer, Boolean> isRegister = new HashMap<>();
