@@ -56,10 +56,10 @@ public class CreateEventController extends HttpServlet {
         String dateEnding = request.getParameter(PARAM_DATEEND);
         String idUser = request.getSession().getAttribute("sessionUser").toString();
 
-        boolean isHidden = false;
+        boolean isHidden = true;
         if ((request.getParameter(PARAM_VISIBILITY) != null))
-            isHidden = true;
-
+            isHidden = false;
+        
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
         try {
             Date startingDate = simpleDateFormat.parse(dateBeginning);
@@ -76,7 +76,6 @@ public class CreateEventController extends HttpServlet {
             request.setAttribute(PARAM_TITLE, title);
             request.setAttribute(PARAM_DESCRIPTION, description);
             request.setAttribute(PARAM_LOCATION, location);
-
             eventService.create(event);
             request.setAttribute("msgSucess",
                     "Succés de la création de l'événement qui peut être consulté via le lien : ");

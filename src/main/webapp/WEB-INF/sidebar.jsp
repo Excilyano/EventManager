@@ -1,6 +1,3 @@
-<jsp:directive.include file="/WEB-INF/imports.jsp"/>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
 <!-- Sidebar -->
 <div id="sidebar-wrapper">
 	<ul class="sidebar-nav">
