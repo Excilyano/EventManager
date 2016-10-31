@@ -30,8 +30,8 @@
 						<b>Nombre de participants : ${evt.participants.size()}</b>
 					</p>
 				</div>
-				<form method="post">
 					<div class="modale" id="createdEvt_${evt.id}">
+					<form method="post">
 						<h3>${evt.title}</h3>
 						<p>
 							<b>Début :</b> ${evt.startingDate}
@@ -76,9 +76,8 @@
 						<button name="button" value = "updateAction" type="submit"
 								class="btn btn-primary">Modifier</button>
 						<a href="javascript:hide('createdEvt_${evt.id}')" class="btn btn-primary">Retour</a>
-
+					</form>
 					</div>
-				</form>
 			</c:forEach>
 			<div class="evenement creerEvenement"
 				onclick="redirect('creationEvenement.jspa')">
@@ -99,8 +98,8 @@
 						<b>Nombre de participants : ${evt.participants.size()}</b>
 					</p>
 				</div>
-				<form method="post">
 					<div class="modale" id="createdEvt_${evt.id}">
+					<form method="post">
 						<h3>${evt.title}</h3>
 						<p>
 							<b>Début :</b> ${evt.startingDate}
@@ -144,11 +143,12 @@
 						</div>
 						<br /> <a href="javascript:hide('createdEvt_${evt.id}')"
 							class="btn btn-primary">Retour</a>
+					</form>
 					</div>
-				</form>
 			</c:forEach>
 			<h2>Les événements à venir</h2>
 			<c:forEach var="evt" items="${evenementsAll}">
+			<c:if test="${!evt.hidden }">
 				<div class="evenement" onClick="show('createdEvt_${evt.id}')">
 					<h4>${evt.title}</h4>
 					<p>
@@ -161,8 +161,8 @@
 						<b>Nombre de participants : ${evt.participants.size()}</b>
 					</p>
 				</div>
-				<form method="post">
 					<div class="modale" id="createdEvt_${evt.id}">
+					<form method="post">
 						<h3>${evt.title}</h3>
 						<p>
 							<b>Début :</b> ${evt.startingDate}
@@ -205,8 +205,9 @@
 						</div>
 						<br /> <a href="javascript:hide('createdEvt_${evt.id}')"
 							class="btn btn-primary">Retour</a>
+					</form>
 					</div>
-				</form>
+			</c:if>
 			</c:forEach>
 		</div>
 	</div>
