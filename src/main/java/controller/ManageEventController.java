@@ -60,9 +60,9 @@ public class ManageEventController extends AbstractController {
         String idUser = req.getSession().getAttribute("sessionUser").toString();
 
 
-        boolean isHidden = false;
+        boolean isHidden = true;
         if ((req.getParameter(PARAM_VISIBILITY) != null))
-            isHidden = true;
+            isHidden = false;
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
         try {

@@ -70,7 +70,6 @@
 						<p>
 							<b>Nombre de participants : ${evt.participants.size()}</b>
 						</p>
-					</div>
 						<div class="modale invisible" id="createdEvt_${evt.id}">
 							<jsp:directive.include file="/WEB-INF/modale.jsp"/>
 						</div>
