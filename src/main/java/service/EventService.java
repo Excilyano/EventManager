@@ -18,7 +18,6 @@ import entities.User;
  */
 public class EventService extends CrudAbstractServiceImpl<Event> {
 	public List<Event> getPersonalEvent(User user) {
-		System.out.println(user);
 		CriteriaQuery<Event> cq = criteriaBuilder.createQuery(Event.class);
 		Root<Event> rootEntry = cq.from(Event.class);
 		CriteriaQuery<Event> all = cq.select(rootEntry).where(
