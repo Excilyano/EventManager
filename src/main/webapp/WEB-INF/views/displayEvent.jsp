@@ -11,7 +11,6 @@
 </head>
 <body id="background">
 	<div id="wrapper">
-		<div id="calque"></div>
 		<!-- Sidebar -->
 		<jsp:directive.include file="/WEB-INF/sidebar.jsp" />
 		<!-- /#sidebar-wrapper -->
@@ -30,53 +29,8 @@
 						<b>Nombre de participants : ${evt.participants.size()}</b>
 					</p>
 				</div>
-					<div class="modale" id="createdEvt_${evt.id}">
-					<form method="post">
-						<h3>${evt.title}</h3>
-						<p>
-							<b>Début :</b> ${evt.startingDate}
-						</p>
-						<p>
-							<b>Fin :</b> ${evt.endDate}
-						</p>
-						<p>
-							<b>Adresse :</b> ${evt.location}
-						</p>
-						<p>${evt.description}</p>
-						<p>
-							<b>Participants :</b>
-						</p>
-						<div class="scrollable">
-							<c:forEach var="participant" items="${evt.participants}">
-								<p>${participant},</p>
-							</c:forEach>
-						</div>
-						<input type="hidden" name="eventId" value="${evt.id }">
-						<c:set var="keyIdEvent" value="${evt.id }" />
-						<div>
-							<c:if test='${!isRegister[keyIdEvent]}'>
-								<br />
-								<button name="button" value="registerAction" type="submit"
-									class="btn btn-success">S'inscrire à l'événement</button>
-							</c:if>
-							<c:if test='${isRegister[keyIdEvent]}'>
-								<br />
-								<button name="button" value="unregisterAction" type="submit"
-									class="btn btn-warning">Se désinscrire de l'événement</button>
-							</c:if>
-						</div>
-						<div>
-							<c:if test='${isCreator[keyIdEvent]}'>
-								<br />
-								<button name="button" value="deleteAction" type="submit"
-									class="btn btn-danger">Supprimer l'événement</button>
-							</c:if>
-						</div>
-						<br />
-						<button name="button" value = "updateAction" type="submit"
-								class="btn btn-primary">Modifier</button>
-						<a href="javascript:hide('createdEvt_${evt.id}')" class="btn btn-primary">Retour</a>
-					</form>
+					<div class="modale invisible" id="createdEvt_${evt.id}">
+						<jsp:directive.include file="/WEB-INF/modale.jsp"/>
 					</div>
 			</c:forEach>
 			<div class="evenement creerEvenement"
@@ -98,72 +52,15 @@
 						<b>Nombre de participants : ${evt.participants.size()}</b>
 					</p>
 				</div>
-					<div class="modale" id="createdEvt_${evt.id}">
-					<form method="post">
-						<h3>${evt.title}</h3>
-						<p>
-							<b>Début :</b> ${evt.startingDate}
-						</p>
-						<p>
-							<b>Fin :</b> ${evt.endDate}
-						</p>
-						<p>
-							<b>Adresse :</b> ${evt.location}
-						</p>
-						<p>${evt.description}</p>
-						<p>
-							<b>Participants :</b>
-						</p>
-						<div class="scrollable">
-							<c:forEach var="participant" items="${evt.participants}">
-								<p>${participant},</p>
-							</c:forEach>
-						</div>
-						<br />
-						<c:set var="keyIdEvent" value="${evt.id}" />
-						<input type="hidden" name="eventId" value="${evt.id }">
-						<div>
-							<c:if test='${!isRegister[keyIdEvent]}'>
-								<br />
-								<button name="button" value="registerAction" type="submit"
-									class="btn btn-success">S'inscrire à l'événement</button>
-							</c:if>
-							<c:if test='${isRegister[keyIdEvent]}'>
-								<br />
-								<button name="button" value="unregisterAction" type="submit"
-									class="btn btn-warning">Se désinscrire de l'événement</button>
-							</c:if>
-						</div>
-						<div>
-							<c:if test='${isCreator[keyIdEvent]}'>
-								<br />
-								<button name="button" value="deleteAction" type="submit"
-									class="btn btn-danger">Supprimer l'événement</button>
-							</c:if>
-						</div>
-						<br /> <a href="javascript:hide('createdEvt_${evt.id}')"
-							class="btn btn-primary">Retour</a>
-					</form>
+					<div class="modale invisible" id="createdEvt_${evt.id}">
+						<jsp:directive.include file="/WEB-INF/modale.jsp"/>
 					</div>
 			</c:forEach>
 			<h2>Les événements à venir</h2>
 			<c:forEach var="evt" items="${evenementsAll}">
-			<c:if test="${!evt.hidden }">
-				<div class="evenement" onClick="show('createdEvt_${evt.id}')">
-					<h4>${evt.title}</h4>
-					<p>
-						<b>Début :</b> ${evt.startingDate}
-					</p>
-					<p>
-						<b>Fin :</b> ${evt.endDate}
-					</p>
-					<p>
-						<b>Nombre de participants : ${evt.participants.size()}</b>
-					</p>
-				</div>
-					<div class="modale" id="createdEvt_${evt.id}">
-					<form method="post">
-						<h3>${evt.title}</h3>
+				<c:if test="${!evt.hidden }">
+					<div class="evenement" onClick="show('createdEvt_${evt.id}')">
+						<h4>${evt.title}</h4>
 						<p>
 							<b>Début :</b> ${evt.startingDate}
 						</p>
@@ -171,44 +68,22 @@
 							<b>Fin :</b> ${evt.endDate}
 						</p>
 						<p>
-							<b>Adresse :</b> ${evt.location}
+							<b>Nombre de participants : ${evt.participants.size()}</b>
 						</p>
-						<p>${evt.description}</p>
-						<p>
-							<b>Participants :</b>
-						</p>
-						<div class="scrollable">
-							<c:forEach var="participant" items="${evt.participants}">
-								<p>${participant},</p>
-							</c:forEach>
+						<div class="modale invisible" id="createdEvt_${evt.id}">
+							<jsp:directive.include file="/WEB-INF/modale.jsp"/>
 						</div>
-						<input type="hidden" name="eventId" value="${evt.id }">
-						<c:set var="keyIdEvent" value="${evt.id}" />
-						<div>
-							<c:if test='${!isRegister[keyIdEvent]}'>
-								<br />
-								<button name="button" value="registerAction" type="submit"
-									class="btn btn-success">S'inscrire à l'événement</button>
-							</c:if>
-							<c:if test='${isRegister[keyIdEvent]}'>
-								<br />
-								<button name="button" value="unregisterAction²" type="submit"
-									class="btn btn-warning">Se désinscrire de l'événement</button>
-							</c:if>
-						</div>
-						<div>
-							<c:if test='${isCreator[keyIdEvent]}'>
-								<br />
-								<button name="button" value="deleteAction" type="submit"
-									class="btn btn-danger">Supprimer l'événement</button>
-							</c:if>
-						</div>
-						<br /> <a href="javascript:hide('createdEvt_${evt.id}')"
-							class="btn btn-primary">Retour</a>
-					</form>
-					</div>
-			</c:if>
+				</c:if>
 			</c:forEach>
+			<c:if test= "${not empty evenement }">
+				<div class="modale" id="eventDisplayed">
+					<jsp:directive.include file="/WEB-INF/modaleURL.jsp"/>
+				</div>
+				<div id="calque"></div>
+			</c:if>
+			<c:if test= "${empty evenement }">
+				<div id="calque" class="invisible"></div>
+			</c:if>
 		</div>
 	</div>
 </body>

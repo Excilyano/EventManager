@@ -56,6 +56,7 @@ public class LoginController extends AbstractController {
         if (authentificatedUser != null) {
             HttpSession session = request.getSession();
             session.setAttribute("sessionUser", authentificatedUser.getId());
+            session.setAttribute("userName", authentificatedUser.getFirstName()+" "+authentificatedUser.getLastName());
             response.sendRedirect("consultation.jspa");
         } else {
             this.buildAndAttachErrorMessage(request, "Authentification impossible", "L'adresse email ou le mot de passe sont incorrects");
