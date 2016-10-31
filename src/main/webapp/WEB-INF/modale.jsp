@@ -32,6 +32,14 @@
 			class="btn btn-warning">Se désinscrire de l'événement</button>
 	</c:if>
 </div>
+    <div>
+        <c:if test='${isCreator[keyIdEvent]}'>
+            <br/>
+            <button name="button" value="updateAction" type="submit"
+                    class="btn btn-primary">Modifier
+            </button>
+        </c:if>
+    </div>
 <div>
 	<c:if test='${isCreator[keyIdEvent]}'>
 		<br />
