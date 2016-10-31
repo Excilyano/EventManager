@@ -61,7 +61,7 @@
 							</c:if>
 							<c:if test='${isRegister[keyIdEvent]}'>
 								<br />
-								<button name="button" value="registerAction" type="submit"
+								<button name="button" value="unregisterAction" type="submit"
 									class="btn btn-warning">Se désinscrire de l'événement</button>
 							</c:if>
 						</div>
