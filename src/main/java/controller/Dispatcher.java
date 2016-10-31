@@ -81,17 +81,18 @@ public class Dispatcher extends HttpServlet {
         eventService = new EventService();
         userService = new UserService();
 
-        User user = new User("John","Do","a@a.com","a");
+        /* CREATION JEU DE TEST */
+        User user = new User("aprenom","anom","a@a.com","a");
         userService.create(user);
-
-        userService.create(new User("a","a","azerty@gmail.com","a"));
-
+        userService.create(new User("bprenom","bnom","b@b.com","b"));
         Event eventA = new Event("J2eeA","B117",new Date(2016-1900,10,02),new Date(2016-1900,11,02), user);
         eventA.setHidden(false);
 
         Event eventB = new Event("J2eeB","B117",new Date(2016-1900,10,03),new Date(2016-1900,11,03), user);
         eventB.setHidden(true);
+
         eventService.create(eventA);
+        eventService.create(eventB);
     }
 
     @Override
