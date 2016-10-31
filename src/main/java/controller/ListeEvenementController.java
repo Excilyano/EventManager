@@ -75,8 +75,8 @@ public class ListeEvenementController extends HttpServlet {
 	}
 
 	private void updateAction(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String eventId=  request.getParameter("eventId");
-		response.sendRedirect("updateEvent.jspa?id="+eventId);
+		String eventId = request.getParameter("eventId");
+		response.sendRedirect("updateEvent.jspa?id=" + eventId);
 
 	}
 
@@ -96,13 +96,11 @@ public class ListeEvenementController extends HttpServlet {
 		if (req.getParameter("eventId") != null) {
 			int idEvent = Integer.parseInt(req.getParameter("eventId"));
 			Event event = evtService.find(idEvent);
-			if (event.getCreator() == user) {
-				if (this.evtService.addUserEvent(idEvent, user)) {
-					this.userService.addUserEvent(event, user);
-				} else {
-					this.evtService.removeUserEvent(idEvent, user);
-					this.userService.removeUserEvent(event, user);
-				}
+			if (this.evtService.addUserEvent(idEvent, user)) {
+				this.userService.addUserEvent(event, user);
+			} else {
+				this.evtService.removeUserEvent(idEvent, user);
+				this.userService.removeUserEvent(event, user);
 			}
 		}
 		response.sendRedirect("consultation.jspa");
