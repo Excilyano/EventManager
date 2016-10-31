@@ -21,7 +21,7 @@ public class EntityManagerUtil {
     public static EntityManager getEntityManager(String persistenceUnit){
         if (em==null){
             buildEntityManager(persistenceUnit);
-            buildDataTest();
+//            buildDataTest();
         }
         return em;
     }

@@ -150,6 +150,11 @@
 		left : 11px;
 		right : 11px;
 	}
+
+    #sidebar-wrapper .login {
+        left : 11px;
+        right : 11px;
+    }
 	
 	#sidebar-wrapper {
 	    width: 200px;

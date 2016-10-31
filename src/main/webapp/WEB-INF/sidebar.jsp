@@ -10,11 +10,11 @@
     <c:if test="${sessionUser != null}">
         <p class="logout">
             <a href="logout.jspa" class="deconnexion"><span
-                    class="glyphicon glyphicon-off"></span> Déconnexion</a>
+                    class="glyphicon glyphicon-log-out"></span> Déconnexion</a>
         </p>
     </c:if>
-	<c:if test="${sessionUser == null}">
-        <p class="login">
+    <c:if test="${sessionUser == null}">
+        <p class="logout">
             <a href="connexion.jspa" class="connexion"><span
                     class="glyphicon glyphicon-log-in"></span> Connexion</a>
         </p>
