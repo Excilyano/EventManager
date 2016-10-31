@@ -4,6 +4,7 @@ import entities.Event;
 import entities.User;
 import service.EventService;
 import service.UserService;
+import util.EntityManagerUtil;
 
 import java.io.IOException;
 import java.util.Date;
@@ -91,5 +92,11 @@ public class Dispatcher extends HttpServlet {
         Event eventB = new Event("J2eeB","B117",new Date(2016-1900,10,03),new Date(2016-1900,11,03), user);
         eventB.setHidden(true);
         eventService.create(eventA);
+    }
+
+    @Override
+    public void destroy() {
+        super.destroy();
+        EntityManagerUtil.close();
     }
 }
