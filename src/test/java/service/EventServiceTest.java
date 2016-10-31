@@ -28,7 +28,7 @@ public class EventServiceTest {
 		// L'evenement 2 est cree comme plus recent que l'evenement 1 pour les tests de tri
 		// L'evenement 3 ne doit jamais ressortir car il est deja termine
 		User user1 = new User("Etienne", "CASSIN", "et.cassin@gmail.com", "a");
-		User user2 = new User("Kévin", "KEOVILAY", "b@b.com", "b");
+		User user2 = new User("KÃ©vin", "KEOVILAY", "b@b.com", "b");
 		
 		Event event1 = new Event("Test1", "Location1", EventServiceTest.datePosterieure2, EventServiceTest.datePosterieure2, user1);
 		Event event2 = new Event("Test2", "Location2", EventServiceTest.datePosterieure1, EventServiceTest.datePosterieure1, user1);
