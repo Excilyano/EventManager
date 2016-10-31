@@ -1,10 +1,17 @@
 <form method="post">
 	<h3>${evt.title}</h3>
+	<c:set var="datebeg">
+		<fmt:formatDate pattern="dd/MM/yy hh:mm" value="${evt.startingDate}" />
+	</c:set>
+	<c:set var="dateend">
+		<fmt:formatDate pattern="dd/MM/yy hh:mm" value="${evt.endDate}" />
+	</c:set>
+
 	<p>
-		<b>Début :</b> ${evt.startingDate}
+		<b>Début :</b> ${datebeg}
 	</p>
 	<p>
-		<b>Fin :</b> ${evt.endDate}
+		<b>Fin :</b> ${dateend}
 	</p>
 	<p>
 		<b>Adresse :</b> ${evt.location}
@@ -43,11 +50,10 @@
 	</div>
 	<br />
 	<div>
-		<a href="javascript:hide('createdEvt_${evt.id}')"
-			class="btn btn-primary">Retour</a>
 		<c:if test='${isCreator[keyIdEvent]}'>
 			<button name="button" value="updateAction" type="submit"
 				class="btn btn-primary">Modifier</button>
 		</c:if>
+		<a href="javascript:hide('createdEvt_${evt.id}')">Retour</a>
 	</div>
 </form>
