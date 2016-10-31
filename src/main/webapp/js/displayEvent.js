@@ -2,13 +2,13 @@
  * 
  */
 function show(id) {
-	document.getElementById("calque").className = "";
-	document.getElementById(id).className = "modale";
+	document.getElementById("calque").style.display = "block";
+	document.getElementById(id).style.display = "block";
 }
 
 function hide(id) {
-	document.getElementById("calque").className = "invisible";
-	document.getElementById(id).className = "modale invisible";
+	document.getElementById("calque").style.display = "none";
+	document.getElementById(id).style.display = "none";
 }
 
 function redirect(url){
