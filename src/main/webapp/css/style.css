@@ -8,7 +8,6 @@
 }
 
 #calque {
-	display: none;
 	position: fixed;
 	top: 0%;
 	left: 0%;
@@ -65,7 +64,6 @@ a {
 }
 
 .modale {
-	display : none;
 	position : fixed;
 	left : 40%;
 	top : 15%;
@@ -76,6 +74,10 @@ a {
 	background-color : #eef;
 	z-index : 2;
 	padding-left : 10px;
+}
+
+.invisible {
+	display : none;
 }
 
 .scrollable {
