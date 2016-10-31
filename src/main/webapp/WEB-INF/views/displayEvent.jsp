@@ -22,11 +22,11 @@
 					<h4>${evt.title}</h4>
 
 					<c:set var="datebeg">
-						<fmt:formatDate pattern="dd/MMM/yy hh:mm"
+						<fmt:formatDate pattern="dd/MM/yy hh:mm"
 							value="${evt.startingDate}" />
 					</c:set>
 					<c:set var="dateend">
-						<fmt:formatDate pattern="dd/MMM/yy hh:mm" value="${evt.endDate}" />
+						<fmt:formatDate pattern="dd/MM/yy hh:mm" value="${evt.endDate}" />
 					</c:set>
 
 					<p>
@@ -53,11 +53,11 @@
 				<div class="evenement" onClick="show('createdEvt_${evt.id}')">
 					<h4>${evt.title}</h4>
 					<c:set var="datebeg">
-						<fmt:formatDate pattern="dd/MMM/yy hh:mm"
+						<fmt:formatDate pattern="dd/MM/yy hh:mm"
 							value="${evt.startingDate}" />
 					</c:set>
 					<c:set var="dateend">
-						<fmt:formatDate pattern="dd/MMM/yy hh:mm" value="${evt.endDate}" />
+						<fmt:formatDate pattern="dd/MM/yy hh:mm" value="${evt.endDate}" />
 					</c:set>
 
 					<p>
@@ -80,11 +80,11 @@
 					<div class="evenement" onClick="show('createdEvt_${evt.id}')">
 						<h4>${evt.title}</h4>
 						<c:set var="datebeg">
-							<fmt:formatDate pattern="dd/MMM/yy hh:mm"
+							<fmt:formatDate pattern="dd/MM/yy hh:mm"
 								value="${evt.startingDate}" />
 						</c:set>
 						<c:set var="dateend">
-							<fmt:formatDate pattern="dd/MMM/yy hh:mm" value="${evt.endDate}" />
+							<fmt:formatDate pattern="dd/MM/yy hh:mm" value="${evt.endDate}" />
 						</c:set>
 
 						<p>
