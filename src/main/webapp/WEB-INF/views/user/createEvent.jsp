@@ -80,7 +80,7 @@
                         visible l'événement </label>
                     <div class="col-xs-5">
                         <input id="visibility" name="visibility"
-                        <c:if test="${event.hidden}"> checked </c:if>
+                        <c:if test="${!event.hidden}"> checked </c:if>
                                type="checkbox" data-toggle="toggle" data-on="Visible" data-off="Invisible"
                                data-onstyle="success" data-offstyle="danger">
                     </div>
