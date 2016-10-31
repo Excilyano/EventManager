@@ -13,7 +13,12 @@
                     class="glyphicon glyphicon-off"></span> Déconnexion</a>
         </p>
     </c:if>
-
+	<c:if test="${sessionUser == null}">
+        <p class="login">
+            <a href="connexion.jspa" class="connexion"><span
+                    class="glyphicon glyphicon-log-in"></span> Connexion</a>
+        </p>
+    </c:if>
 
 	<p class="decouvrir">
 		<a href="#" class="btn btn-primary"><span
