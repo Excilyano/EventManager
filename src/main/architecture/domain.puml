@@ -1,0 +1,30 @@
+@startuml
+class User {
+  id : long
+  firstName : String
+  lastname : String
+  email : String
+  company : String
+  password : String
+}
+
+class Event {
+  id : long
+  title : String
+  description : String
+  location : String
+  startingDate : Date
+  endDate : Date
+  hidden : boolean
+  creator : User
+}
+
+
+User "*" -- "*" Event
+(User, Event) . event_user
+
+object event_user {
+  user_id : int
+  event_id : int
+}
+@enduml
