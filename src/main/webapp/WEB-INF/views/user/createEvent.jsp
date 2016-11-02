@@ -40,16 +40,16 @@
 						</div>
 					</div>
 					<div class="form-group row">
-						<label for="description" class="col-xs-3 col-form-label">Description*
+						<label for="description" class="col-xs-3 col-form-label">Description
 						</label>
 						<div class="col-xs-9">
-							<textarea class="form-control" rows="4" type="text"
+							<textarea maxlength="250" class="form-control" rows="4" type="text"
 								id="description" name="description"
 								placeholder="Description de l'événement">${event.description }</textarea>
 						</div>
 					</div>
 					<div class="form-group row">
-						<label for="location" class="col-xs-3 col-form-label">Lieu
+						<label for="location" class="col-xs-3 col-form-label">Lieu*
 						</label>
 						<div class="col-xs-9">
 							<input required class="form-control" type="text" id="location"
