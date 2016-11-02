@@ -48,6 +48,12 @@ public class ListeEvenementController extends HttpServlet {
         for (Event e : evenementsPerso) {
             isCreator.put(e.getId(), true);
         }
+        if (request.getParameter("id") != null) {
+        	int id = Integer.parseInt(request.getParameter("id"));
+        	Event selectedEvent = evtService.find(id);
+        	request.setAttribute("evenement", selectedEvent);
+        }
+        
         request.setAttribute("isRegister", isRegister);
         request.setAttribute("isCreator", isCreator);
         this.getServletContext().getRequestDispatcher("/WEB-INF/views/displayEvent.jsp").forward(request, response);

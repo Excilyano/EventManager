@@ -39,7 +39,7 @@
 					<b>Nombre de participants : ${evt.participants.size()}</b>
 				</p>
 			</div>
-			<div class="modale invisible" id="createdEvt_${evt.id}">
+			<div class="modale myInvisible" id="createdEvt_${evt.id}">
 				<jsp:directive.include file="/WEB-INF/modale.jsp" />
 			</div>
 		</c:forEach>
@@ -70,7 +70,7 @@
 					<b>Nombre de participants : ${evt.participants.size()}</b>
 				</p>
 			</div>
-			<div class="modale invisible" id="createdEvt_${evt.id}">
+			<div class="modale myInvisible" id="createdEvt_${evt.id}">
 				<jsp:directive.include file="/WEB-INF/modale.jsp" />
 			</div>
 		</c:forEach>
@@ -96,7 +96,7 @@
 					<p>
 						<b>Nombre de participants : ${evt.participants.size()}</b>
 					</p>
-					<div class="modale invisible" id="createdEvt_${evt.id}">
+					<div class="modale myInvisible" id="createdEvt_${evt.id}">
 						<jsp:directive.include file="/WEB-INF/modale.jsp" />
 					</div>
 				</div>
@@ -109,7 +109,7 @@
 			<div id="calque"></div>
 		</c:if>
 		<c:if test="${empty evenement }">
-			<div id="calque" class="invisible"></div>
+			<div id="calque" class="myInvisible"></div>
 		</c:if>
 	</div>
 </div>
