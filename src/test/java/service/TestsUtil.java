@@ -14,6 +14,7 @@ public abstract class TestsUtil {
 		for (Event event : events) {
 			TestsUtil.serviceEvent.delete(event);
 		}
+		
 		List<User> users = TestsUtil.serviceUser.findAll();
 		for (User user : users) {
 			TestsUtil.serviceUser.delete(user);
